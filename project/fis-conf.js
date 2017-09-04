@@ -41,7 +41,7 @@ if (arguments == 'prod') {
                 to: '../'
             })
         })
-        .match('resource/*.{js, css}', {
+        .match('*.{js, css}', {
             domain:'slList',
             url: '$0'
         })
