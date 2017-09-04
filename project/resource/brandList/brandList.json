@@ -1,0 +1,417 @@
+{
+  "success": true,
+  "result": [
+    {
+      "country": "日本",
+      "name": "三和商社",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "日本一线大牌和药妆店，需要团队收的都很擅长",
+      "warehouse": "日本  香港"
+    },
+    {
+      "country": "日本",
+      "name": "恒诚",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "26个品牌"
+    },
+    {
+      "country": "日本",
+      "name": "HIGOU",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "30"
+    },
+    {
+      "country": "日本",
+      "name": "FRONT LINE",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "小林制药",
+      "warehouse": "大阪"
+    },
+    {
+      "country": "日本",
+      "name": "豌豆公主",
+      "code": "新",
+      "type": "跨境",
+      "brand": "kose/SANA/BCL",
+      "warehouse": "日本东京"
+    },
+    {
+      "country": "日本  台湾",
+      "name": "86小铺",
+      "code": "新",
+      "type": "跨境",
+      "brand": "misshana/台湾食品/日系产品"
+    },
+    {
+      "country": "日本  韩国",
+      "name": "斯雷康",
+      "code": "STHL",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "candy doll，韩国 CLIO（香港总代），韩国 CNP（香港总代），YTTP （中国及香港 澳门总代），韩国 Dewytree (授权分销商），metamucil 美达施 （宝洁旗下品牌   授权分销商），美国 NZORIGIN （中国及香港 澳门 台湾总代），Oenobiol 欧诺美（授权分销商），Flora 富兰（授权分销商），Ostelin（授权分销商）"
+    },
+    {
+      "country": "日本  欧美",
+      "name": "香港腾飞",
+      "code": "TF",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "fracora/cure酷雅/ialugen伊露容/sanesens闪泉/sukin苏芊/abybom/color deep/reparte/碧缇丝/piabelpia培娅奴"
+    },
+    {
+      "country": "日本",
+      "name": "正航实业",
+      "code": "CH",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "BCL/CANMAKE/SPC   FANCL  DHC  Canmake  嘉娜宝 高丝   资生堂  花王 SANA  狮王  KATE   ",
+      "warehouse": "日本  香港"
+    },
+    {
+      "country": "日本",
+      "name": "吉通贸易",
+      "code": "JT",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "高丝/资生堂/嘉娜宝",
+      "warehouse": "日本"
+    },
+    {
+      "country": "日本",
+      "name": "采妍国际",
+      "code": "CY",
+      "type": "跨境",
+      "brand": "nursery卸妆膏/肌断食水/明色眼霜（有授权）"
+    },
+    {
+      "country": "日本",
+      "name": "拉拉米",
+      "code": "LLM",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "娜丽丝总代"
+    },
+    {
+      "country": "日本  台湾  欧美",
+      "name": "银熙贸易",
+      "code": "YX",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "惠之本铺/伊诗露总代  宝艺冻膜",
+      "warehouse": "香港"
+    },
+    {
+      "country": "日本",
+      "name": "百惠",
+      "code": "BH",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "GUM、KOSE高丝、KUMANO熊野油脂 、LION狮王、Mellsavon、 Propolinse比那氏、Reveur（品牌方）、unicharm尤妮佳、贝印、碧柔、大王、牛乳石硷COW、树之惠、苏菲、资生堂",
+      "warehouse": "日本"
+    },
+    {
+      "country": "日本",
+      "name": "仪菲",
+      "code": "YF",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "城野医生总代（授权）",
+      "warehouse": "香港"
+    },
+    {
+      "country": "日本",
+      "name": "C&H CO.,LTD",
+      "code": "MC",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "Pure Smile纯微笑，YANAGIYA/柳屋，Marcheur 三色遮瑕膏（有授权），GEKKA 睡眠免洗面膜/万代的CREER BEATU，KOJI，BCL，COTTON LABO，PELICAN（有授权），桐灰，小林，JUJU，尤妮佳/PIAFLOSS,SPC（有授权）sunsmile（有授权） 资生堂（有授权）"
+    },
+    {
+      "country": "日本",
+      "name": "上海莱仪",
+      "code": "LY",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "BCL,CUTE GLASS, RUCAKA"
+    },
+    {
+      "country": "日本",
+      "name": "KIRAN",
+      "code": "KIRAN",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "POLA，纱荣子，三善油彩，Cute glass,AkaraN,cogit,Wakara,SPA,BCL",
+      "warehouse": "日本"
+    },
+    {
+      "country": "日本",
+      "name": "上海快乐讯广告",
+      "code": "KLXGG",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "cheryl阿古屋素颜霜（授权）",
+      "warehouse": "香港"
+    },
+    {
+      "country": "日本",
+      "name": "香港宇石",
+      "code": "US",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "日本LB彩妆  日本Nursery柚子卸妆  台湾romasin杏仁酸精华液（授权）",
+      "warehouse": "香港"
+    },
+    {
+      "country": "日本",
+      "name": "上海哆薇",
+      "code": "DWDD",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "诗留美屋/club（有授权）"
+    },
+    {
+      "country": "日本",
+      "name": "深圳荞麦",
+      "code": "QM",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "canmake/MUJI/xiva"
+    },
+    {
+      "country": "日本",
+      "name": "苏州伊言堂",
+      "code": "YYT",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "HABA/Gris Perle/Harnn（泰国）"
+    },
+    {
+      "country": "日本",
+      "name": "都睿商贸",
+      "code": "DRSM",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "P&J搪瓷隔离"
+    },
+    {
+      "country": "日本  韩国",
+      "name": "香港芳星",
+      "code": "FX",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "RAFRA，露美柔（有授权）"
+    },
+    {
+      "country": "韩国  欧美",
+      "name": "sinoeast",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "refa,韩免扫货、韩国品牌"
+    },
+    {
+      "country": "韩国",
+      "name": "召香",
+      "code": "ZX",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "蓓昂斯，芙蓉面膜，unny，欧西丹尼",
+      "warehouse": "韩国"
+    },
+    {
+      "country": "韩国",
+      "name": "玫得",
+      "code": "MD",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "悦诗风吟62折，梦妆，兰芝，CLIO, It's skin，Skin Food，3ce（彩妆），Iope，SNP , 克莱斯，AboutMe ，VDL,  CNP， 呼吸，欧蕙，LG生活健康，（润膏，on the body， 舒服蓝 等等） ， 爱茉莉（吕，MeDian） ， AHC,  BBIA (彩妆） ，魔法森林",
+      "warehouse": "韩国"
+    },
+    {
+      "country": "韩国",
+      "name": "思密达仓库",
+      "code": "SMDCK",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "范特VT品牌方"
+    },
+    {
+      "country": "韩国",
+      "name": "韩妮采",
+      "code": "HNL",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "Heynature品牌方"
+    },
+    {
+      "country": "韩国",
+      "name": "B2LINK",
+      "code": "B2LINK",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "23 years old,格丽松,闺爱朗,gram,nose scret,得鲜,Labcos,丽恩,max clinic,maycoop,moart,MILATTE,JM Solution,SNP,W.Lab,Prem,Merbless（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "伸美",
+      "code": "SM",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "春雨总代（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "卓文",
+      "code": "ZW",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "荷拉heela总代（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "YOKIPLUS Co.，Ltd",
+      "code": "YKP",
+      "type": "跨境",
+      "brand": "爱敬age（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "艾医生",
+      "code": "AYS",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "艾医生品牌方（有授权）"
+    },
+    {
+      "country": "韩国  欧美",
+      "name": "达达牛",
+      "code": "DDN",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "兰芝、香蒲丽扫货"
+    },
+    {
+      "country": "韩国",
+      "name": "春源",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "30天可谈",
+      "brand": "JM SOLUTION/肌司研, GANGVELY/江南宝贝, the SAEM/得鲜, MOONSHOT/茉姗, NEOGEN/妮珍，REGEN/丽珍，MCC/摩肯"
+    },
+    {
+      "country": "韩国",
+      "name": "香港嘉瑞",
+      "code": "JS",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "Clio,rire，lizk，labonita，BOBMIKI 睫毛膏,BNIB,原辰"
+    },
+    {
+      "country": "韩国",
+      "name": "小红唇",
+      "code": "XHC",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "CAREMILLE珂曼"
+    },
+    {
+      "country": "韩国",
+      "name": "联合盛业",
+      "code": "UM",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "香蒲丽总代（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "汇通国际",
+      "code": "HT",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "Merbliss总代（有授权）"
+    },
+    {
+      "country": "韩国",
+      "name": "ABYBOM",
+      "code": "AB",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "Abybom品牌方（有授权）"
+    },
+    {
+      "country": "日本  韩国  欧美",
+      "name": "天恩国际",
+      "code": "GR",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "KISSME  SOFINA  CETAPHIL  AUSSIE  NARIS UP BYPHASSE"
+    },
+    {
+      "country": "台湾",
+      "name": "巨柏国际",
+      "code": "新",
+      "type": "跨境",
+      "timeLimit": "30",
+      "brand": "已经提供品牌清单在群里了",
+      "warehouse": "台湾"
+    },
+    {
+      "country": "台湾",
+      "name": "亮达",
+      "code": "S",
+      "type": "跨境",
+      "timeLimit": "7",
+      "brand": "solone总代（有授权）"
+    },
+    {
+      "country": "台湾",
+      "name": "喜欢彩妆",
+      "code": "TXGJ",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "猪头妹品牌方（有授权），DRAMMA.Q，寶島阿里山夠姜",
+      "warehouse": "台湾"
+    },
+    {
+      "country": "台湾",
+      "name": "天禧国际",
+      "code": "AYTX",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "宝艺冻膜，苏菲娜隔离",
+      "warehouse": "台湾、香港"
+    },
+    {
+      "country": "台湾",
+      "name": "LIBELLE",
+      "code": "LI",
+      "type": "跨境",
+      "timeLimit": "0",
+      "brand": "BEBE POSHE 奢华宝贝，UNT 太阳感.光指彩釉"
+    },
+    {
+      "country": "日本",
+      "name": "unispeed",
+      "code": "UN",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "雪美清杨桃水（总代）熊野油脂horse oil，大眼立显，tokyo love soap，ex&esprincess，Duplair朵莱尔，TAMANOHADA玉之肌，A’kin ，pelican，KOJI，COSMETEX ROLAND，sanosan哈罗闪，speed shape，CEFINE，pdc，sukin等，  新谷酵素，山本汉方，SOS，metabolic，美溢，dokkan abura das，龙角散，SOS，让一切消失（graphico），speed shape，slender walk等"
+    },
+    {
+      "country": "日本  韩国  欧美",
+      "name": "M&K ",
+      "code": "QXMK",
+      "type": "跨境",
+      "timeLimit": "15",
+      "brand": "韩国：VDL/TONYMOLY/LABIOTTE，  美国：丽蕴/thebalm，  日本：江原道KOHGENDO，  意大利：吉儿玛/GEOMAR-一般贸易"
+    }
+  ]
+}
+

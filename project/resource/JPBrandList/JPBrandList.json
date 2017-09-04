@@ -1,0 +1,935 @@
+{
+  "success": true,
+  "result": [
+    {
+      "name": "frontline",
+      "brand": "桐灰化学/KIRIBAI"
+    },
+    {
+      "name": "frontline",
+      "brand": "牛乳石碱/COW"
+    },
+    {
+      "name": "frontline",
+      "brand": "ST小鸡/ST"
+    },
+    {
+      "name": "frontline",
+      "brand": "庄臣/JOHNSON"
+    },
+    {
+      "name": "frontline",
+      "brand": "宝洁/P&G"
+    },
+    {
+      "name": "frontline",
+      "brand": "妮飘/NEPIA"
+    },
+    {
+      "name": "frontline",
+      "brand": "life do"
+    },
+    {
+      "name": "frontline",
+      "brand": "花王/KAO"
+    },
+    {
+      "name": "frontline",
+      "brand": "曼丹/MANDOM"
+    },
+    {
+      "name": "frontline",
+      "brand": "明色/BRILLIANT COLORS"
+    },
+    {
+      "name": "frontline",
+      "brand": "施华蔻/HENKEL"
+    },
+    {
+      "name": "frontline",
+      "brand": "卡耐优/KANEYO"
+    },
+    {
+      "name": "frontline",
+      "brand": "阿芦滋润/ALOINS"
+    },
+    {
+      "name": "frontline",
+      "brand": "伊丽莎白/ELIZABETH"
+    },
+    {
+      "name": "frontline",
+      "brand": "伊势半/KISS ME"
+    },
+    {
+      "name": "frontline",
+      "brand": "威娜/WELLA"
+    },
+    {
+      "name": "frontline",
+      "brand": "狮王/LION"
+    },
+    {
+      "name": "frontline",
+      "brand": "白元/HAKUGEN"
+    },
+    {
+      "name": "frontline",
+      "brand": "小林制药/KOBAYASHI"
+    },
+    {
+      "name": "frontline",
+      "brand": "日本制纸/CRECIA"
+    },
+    {
+      "name": "frontline",
+      "brand": "常春藤/IVY"
+    },
+    {
+      "name": "frontline",
+      "brand": "近江兄弟/OMI"
+    },
+    {
+      "name": "frontline",
+      "brand": "联合利华/UNILEVER"
+    },
+    {
+      "name": "frontline",
+      "brand": "尤妮佳/UNICHARM"
+    },
+    {
+      "name": "frontline",
+      "brand": "柳屋/YANAGIYA"
+    },
+    {
+      "name": "frontline",
+      "brand": "SPR JAPAN"
+    },
+    {
+      "name": "frontline",
+      "brand": "纪阳除虫菊/KIYOU JOCHUGIKU"
+    },
+    {
+      "name": "frontline",
+      "brand": "KUREHA"
+    },
+    {
+      "name": "frontline",
+      "brand": "塔丽雅/DARIYA"
+    },
+    {
+      "name": "frontline",
+      "brand": "3M"
+    },
+    {
+      "name": "frontline",
+      "brand": "泡泡玉/SHABON"
+    },
+    {
+      "name": "frontline",
+      "brand": "日本盛/NIHONSAKARI"
+    },
+    {
+      "name": "frontline",
+      "brand": "娜丽丝/NARIS UP"
+    },
+    {
+      "name": "frontline",
+      "brand": "旭化成/ASAHI KASEI"
+    },
+    {
+      "name": "frontline",
+      "brand": "BCL"
+    },
+    {
+      "name": "frontline",
+      "brand": "BISON"
+    },
+    {
+      "name": "frontline",
+      "brand": "LEC"
+    },
+    {
+      "name": "frontline",
+      "brand": "美源/HOYU"
+    },
+    {
+      "name": "frontline",
+      "brand": "COSMETEX ROLAND"
+    },
+    {
+      "name": "frontline",
+      "brand": "碧迪皙/PDC"
+    },
+    {
+      "name": "frontline",
+      "brand": "惠百施/EBISU"
+    },
+    {
+      "name": "frontline",
+      "brand": "火箭石碱/ROCKET SOAP"
+    },
+    {
+      "name": "frontline",
+      "brand": "KRACIE"
+    },
+    {
+      "name": "frontline",
+      "brand": "DHC健康食品"
+    },
+    {
+      "name": "frontline",
+      "brand": "SARAYA"
+    },
+    {
+      "name": "frontline",
+      "brand": "大王/ELLEAIR"
+    },
+    {
+      "name": "frontline",
+      "brand": "皓乐齿/SUNSTAR"
+    },
+    {
+      "name": "frontline",
+      "brand": "小久保/KOKUBO"
+    },
+    {
+      "name": "frontline",
+      "brand": "PITTA"
+    },
+    {
+      "name": "frontline",
+      "brand": "SANADA"
+    },
+    {
+      "name": "frontline",
+      "brand": "UYEKI"
+    },
+    {
+      "name": "frontline",
+      "brand": "安速"
+    },
+    {
+      "name": "frontline",
+      "brand": "金鸟/KINCHO"
+    },
+    {
+      "name": "frontline",
+      "brand": "和光制纸/WAKO"
+    },
+    {
+      "name": "frontline",
+      "brand": "日本汉方研究所"
+    },
+    {
+      "name": "CH正航",
+      "brand": "BCL     ",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "Bb LABORATORIES",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": " cecile",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "kinpapu",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "MINAMI",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "SPC",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "太阳社",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "GEKKA",
+      "power": "是"
+    },
+    {
+      "name": "CH正航",
+      "brand": "  FANCL"
+    },
+    {
+      "name": "CH正航",
+      "brand": "DHC "
+    },
+    {
+      "name": "CH正航",
+      "brand": " 嘉娜宝"
+    },
+    {
+      "name": "CH正航",
+      "brand": "Canmake"
+    },
+    {
+      "name": "CH正航",
+      "brand": "高丝 "
+    },
+    {
+      "name": "CH正航",
+      "brand": "资生堂"
+    },
+    {
+      "name": "CH正航",
+      "brand": "花王"
+    },
+    {
+      "name": "CH正航",
+      "brand": "SANA"
+    },
+    {
+      "name": "CH正航",
+      "brand": "狮王"
+    },
+    {
+      "name": "CH正航",
+      "brand": "KATE"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Chez moi",
+      "power": "是",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "SPC",
+      "power": "是",
+      "remark": "面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "金鸟",
+      "power": "是",
+      "remark": "家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "apide",
+      "power": "是",
+      "remark": "礼盒套装，家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "熊野马油",
+      "power": "是",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "山本汉方",
+      "power": "是",
+      "remark": "食品"
+    },
+    {
+      "name": "恒诚",
+      "brand": "资生堂",
+      "link": "直接采购",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "花王",
+      "link": "直接采购",
+      "remark": "个护，面部护理，家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "狮王",
+      "link": "直接采购",
+      "remark": "个护，面部护理，家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "小林制药",
+      "link": "直接采购",
+      "remark": "个护，面部护理，家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "柳屋",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "ST小鸡",
+      "link": "直接采购",
+      "remark": "家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "和光堂",
+      "link": "直接采购",
+      "remark": "母婴"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Cogit",
+      "link": "直接采购",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Utena",
+      "link": "直接采购",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "GUM",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Ebisu",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "普拉塞斯",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "玉肌",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "女神洗发水",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "To-plan",
+      "link": "直接采购",
+      "remark": "个护，母婴"
+    },
+    {
+      "name": "恒诚",
+      "brand": "妮飘",
+      "link": "直接采购",
+      "remark": "家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "SANA",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "kowa",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "牛乳石碱",
+      "link": "直接采购",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "植村秀",
+      "link": "直接采购",
+      "remark": "彩妆"
+    },
+    {
+      "name": "恒诚",
+      "brand": "比那氏",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Kracie",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Miyoshi",
+      "link": "直接采购",
+      "remark": "个护，家清"
+    },
+    {
+      "name": "恒诚",
+      "brand": "巴斯克林",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "chuchupe",
+      "link": "直接采购",
+      "remark": "个护"
+    },
+    {
+      "name": "恒诚",
+      "brand": "近江兄弟",
+      "link": "直接采购",
+      "remark": "个护，面部护理"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Canmake"
+    },
+    {
+      "name": "恒诚",
+      "brand": "无印良品"
+    },
+    {
+      "name": "恒诚",
+      "brand": "城野医生"
+    },
+    {
+      "name": "恒诚",
+      "brand": "尤妮佳"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Naturie"
+    },
+    {
+      "name": "恒诚",
+      "brand": "曼丹"
+    },
+    {
+      "name": "恒诚",
+      "brand": "肌美精"
+    },
+    {
+      "name": "恒诚",
+      "brand": "佑天兰"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Kate/凯朵"
+    },
+    {
+      "name": "恒诚",
+      "brand": "乐敦"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Minon"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Kiss Me"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Propolinse"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Kanebo"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Reveur"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Botanist"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Esthe dew"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Oh Baby"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Melty Wink"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Lululun"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Tokyo Love"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Samourai"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Loshi"
+    },
+    {
+      "name": "恒诚",
+      "brand": "长寿乃里"
+    },
+    {
+      "name": "恒诚",
+      "brand": "FLOW FUSHI"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Sofina"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Rosette"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Alovivi"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Milbon"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Pinky Queen"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Cow"
+    },
+    {
+      "name": "恒诚",
+      "brand": "Deonatulle"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "GUM"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "KOSE高丝"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "KUMANO熊野油脂"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "LION狮王"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "Mellsavon"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "Propolinse比那氏"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "Reveur"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "unicharm尤妮佳"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "贝印"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "碧柔"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "大王"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "牛乳石硷COW"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "树之惠"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "苏菲"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "资生堂"
+    },
+    {
+      "name": "BH百惠",
+      "brand": "肌美精 面膜"
+    },
+    {
+      "name": "JT吉通",
+      "brand": "高丝",
+      "link": "优势品牌"
+    },
+    {
+      "name": "JT吉通",
+      "brand": "资生堂",
+      "link": "优势品牌"
+    },
+    {
+      "name": "JT吉通",
+      "brand": "嘉娜宝",
+      "link": "优势品牌"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "LISHAN 防晒喷雾 250g",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "BIOLADY ",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "Orien安润奈",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "TUNEMAKERS",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "Nursery卸妆膏",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "BORICA",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "L:Oil水油分离喷雾",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "ruam ruam洁面皂",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "NARIS UP新版防晒喷雾",
+      "power": "是"
+    },
+    {
+      "name": "CY采妍",
+      "brand": "明色胎盘素眼霜 ",
+      "power": "是"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "惠之本铺",
+      "power": "是",
+      "link": "总代"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "伊诗露",
+      "power": "是",
+      "link": "总代"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "资生堂"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "高丝"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "SPC"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "KISSME"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "苏菲娜"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "宝艺"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "欣兰"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "haba"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "城野医生"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "pola"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "canmake"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "诗留美屋"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "DHC"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "MUJI无印良品"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "近江兄弟"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "CPB"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "碧柔"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "妮维雅"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "佑天兰"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "曼丹"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "柳屋"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "QUALITY FIRST"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "明色"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "大创"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "花王"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "乐敦"
+    },
+    {
+      "name": "YX银熙",
+      "brand": "SANA"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "盛田屋"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "菊正宗"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "watosa"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "SANA"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "Pure smile"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "PDC"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "LUMIELINA"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "kose"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "hacci"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "exideal led"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "club"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "BCL"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "ayura"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "avance"
+    },
+    {
+      "name": "豌豆公主",
+      "brand": "afloat"
+    }
+  ]
+}
+

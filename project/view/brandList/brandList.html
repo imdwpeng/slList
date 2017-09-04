@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>日韩台整合供应商清单</title>
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-pc-common/common-pc.css">
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.css">
+
+</head>
+<body>
+<div class="bd">
+    <div class="top clear">
+        <div class="title">
+            <div class="con checked">日韩台整合供应商清单</div>
+        </div>
+    </div>
+
+    <div class="containe form-group" id="formSubmit">
+        <div class="row">
+            <label class="col-md-1">擅长国家</label>
+            <div class="col-md-3">
+                <select name="" id="J_country">
+                    <option value="-1">--全部--</option>
+                    <option value="日本">日本</option>
+                    <option value="台湾">台湾</option>
+                    <option value="韩国">韩国</option>
+                    <option value="欧美">欧美</option>
+                </select>
+            </div>
+
+            <label class="col-md-1">供&nbsp;应&nbsp;商</label>
+            <div class="col-md-3">
+                <select name="" id="J_name">
+                </select>
+            </div>
+
+            <label class="col-md-1">供应商代码</label>
+            <div class="col-md-3">
+                <select name="" id="J_code">
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-1">账&emsp;&emsp;期</label>
+            <div class="col-md-3">
+                <select name="" id="J_timeLimit">
+                </select>
+            </div>
+
+            <label class="col-md-1">贸易类型</label>
+            <div class="col-md-3 radio">
+                <label>
+                    <input class="J_type" type="radio" value="-1" name="type" checked>
+                    全部
+                </label>
+                <label>
+                    <input class="J_type" type="radio" value="跨境" name="type">
+                    跨境
+                </label>
+                <label>
+                    <input class="J_type" type="radio" value="一般贸易" name="type">
+                    一般贸易
+                </label>
+            </div>
+
+            <label class="col-md-1">海外仓库</label>
+            <div class="col-md-3">
+                <select name="" id="J_warehouse">
+                    <option value="-1">--全部--</option>
+                    <option value="日本">日本</option>
+                    <option value="香港">香港</option>
+                    <option value="大阪">大阪</option>
+                    <option value="日本东京">日本东京</option>
+                    <option value="韩国">韩国</option>
+                    <option value="台湾">台湾</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 text-c">
+                <button type="button" class="form-button" id="J_search">查询</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container basicTable" id="formList">
+        <div class="row title" data-module="affix">
+            <div class="col-1">擅长国家</div>
+            <div class="col-1">供应商</div>
+            <div class="col-1">供应商代码</div>
+            <div class="col-1">账期</div>
+            <div class="col-1">贸易类型</div>
+            <div class="col-2">品牌</div>
+            <div class="col-1">海外仓库</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/plain" id="J_template">
+{{#list}}
+    <div class="row rowList">
+        <div class="col-1 country">{{country}}</div>
+        <div class="col-1 name">{{name}}</div>
+        <div class="col-1 code">{{code}}</div>
+        <div class="col-1 timeLimit">{{timeLimit}}</div>
+        <div class="col-1 type">{{type}}</div>
+        <div class="col-2">{{brand}}</div>
+        <div class="col-1 warehouse">{{warehouse}}</div>
+    </div>
+{{/list}}
+</script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-public/mustache.min.js"></script>
+
+<script src="../../resource/brandList/brandList.js"></script>
+
+</html>

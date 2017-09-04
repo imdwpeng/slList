@@ -6,7 +6,7 @@ $(document).ready(function () {
     //获取数据
     $.ajax({
         type: 'GET',
-        url: 'brandList-json.js'
+        url: '../../resource/brandList/brandList.json'
     }).done(function (data) {
         if (data && data.success) {
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>日本线品牌list</title>
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-pc-common/common-pc.css">
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.css">
+
+</head>
+<body>
+<div class="bd">
+    <div class="top clear">
+        <div class="title">
+            <div class="con checked">日本线品牌list</div>
+        </div>
+    </div>
+
+    <div class="containe form-group" id="formSubmit">
+        <div class="row">
+            <label class="col-md-1">供&nbsp;应&nbsp;商</label>
+            <div class="col-md-3">
+                <input type="text" id="J_name">
+            </div>
+
+            <label class="col-md-1 form-label">供应链路</label>
+            <div class="col-md-3">
+                <input type="text" id="J_link">
+            </div>
+
+            <label class="col-md-1">品&emsp;&emsp;牌</label>
+            <div class="col-md-3">
+                <select name="" id="J_brand">
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <label class="col-md-1">是否授权</label>
+            <div class="col-md-3 radio">
+                <label>
+                    <input class="J_power" type="radio" value="-1" name="power" checked>
+                    全部
+                </label>
+                <label>
+                    <input class="J_power" type="radio" value="是" name="power">
+                    是
+                </label>
+                <label>
+                    <input class="J_power" type="radio" value="否" name="power">
+                    否
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1 text-c">
+                <button type="button" class="form-button" id="J_search">查询</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container basicTable" id="formList">
+        <div class="row title" data-module="affix">
+            <div class="col-1">供应商</div>
+            <div class="col-1">品牌</div>
+            <div class="col-1">是否授权</div>
+            <div class="col-1">供应链路</div>
+            <div class="col-1">备注</div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/plain" id="J_template">
+{{#list}}
+    <div class="row rowList">
+        <div class="col-1 name">{{name}}</div>
+        <div class="col-1 brand">{{brand}}</div>
+        <div class="col-1 power">{{power}}</div>
+        <div class="col-1 link">{{link}}</div>
+        <div class="col-1 remark">{{remark}}</div>
+    </div>
+{{/list}}
+</script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-public/mustache.min.js"></script>
+
+<script src="../../resource/JPBrandList/JPBrandList.js"></script>
+
+
+</html>
