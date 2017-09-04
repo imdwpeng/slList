@@ -42,6 +42,7 @@ if (arguments == 'prod') {
             })
         })
         .match('*.{js, css}', {
+            domain:'slList',
             url: '$0'
         })
         .match('*.js', {
