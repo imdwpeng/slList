@@ -6,7 +6,7 @@ $(document).ready(function () {
     //获取数据
     $.ajax({
         type: 'GET',
-        url: '../../resource/JPBrandList/JPBrandList.json'
+        url: 'JPBrandList.json'
     }).done(function (data) {
         if (data && data.success) {
 
