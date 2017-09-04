@@ -1,1 +1,0 @@
-$(document).ready(function(){$("#J_menu li").on("click",function(){var a=$(this),e=a.data("href");a.addClass("active").siblings().removeClass("active"),$("#J_iframeContent").prop("src",e)})});
