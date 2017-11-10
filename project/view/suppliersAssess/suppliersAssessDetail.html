@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供应商评估详情</title>
+
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-pc-common/common-pc.css">
+
+    <link rel="stylesheet" href="../../resource/suppliersAssess/suppliersAssessDetail.css">
+
+</head>
+<body>
+
+<div class="score-box">
+    <p id="totalScore">0.00</p>
+    <hr>
+    <p id="totalGrade">D</p>
+</div>
+
+<div class="bd">
+    <div class="top">
+        <div class="title">
+            <div class="con checked">供应商评估详情</div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/plain" id="J_template">
+    <div class="container form-group">
+        <div class="row">
+            <fieldset class="basic-msg" style="width: 100%;">
+                <legend>供应商基本信息</legend>
+                <div class="row">
+                    <label class="col-md-2">名&emsp;&emsp;称:</label>
+                    <div class="col-md-6">
+                        <label>{{name}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">法人代表:</label>
+                    <div class="col-md-6">
+                        <label>{{legalPerson}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">联系方式:</label>
+                    <div class="col-md-6">
+                        <label>{{phone}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">产品名称:</label>
+                    <div class="col-md-6">
+                        <label>{{productName}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">产品类型:</label>
+                    <div class="col-md-6">
+                        <label>{{productType}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">供货周期:</label>
+                    <div class="col-md-6">
+                        <label>{{period}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">原有供应商情况:</label>
+                    <div class="col-md-6">
+                        <label>{{old}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">地&emsp;&emsp;址:</label>
+                    <div class="col-md-6">
+                        <label>{{address}}</label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <!--总体情况{-->
+        <div class="row">
+            <fieldset id="totalField" data-item="situation" data-type="{{form.situation.type}}" style="width: 100%;">
+                <legend>总体情况</legend>
+                <div class="row rowList" data-type="type">
+                    <label class="col-md-2 form-label">供应商类型:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="type" data-no="{{form.situation.type}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList hidden" id="totalSituation">
+                    <label class="col-md-2 form-label">总体情况:</label>
+                    <div class="col-md-6">
+                        <label class="text-l selectedName multipleChoice" data-type="case" data-no="{{form.situation.case}}"></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--品牌优势{-->
+        <div class="row">
+            <fieldset data-item="brand" id="brandField" data-ratio-1="30" data-ratio-2="35"
+                      style="width: 100%;">
+                <legend>品牌优势</legend>
+                <div class="row rowList" data-type="brandType">
+                    <label class="col-md-2 form-label">品牌地位:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="brandType" data-no="{{form.brand.brandType}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="authorization">
+                    <label class="col-md-2 form-label">授&emsp;&emsp;权:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="authorization" data-no="{{form.brand.authorization}}"></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--协作水平{-->
+        <div class="row">
+            <fieldset data-item="coordination" data-ratio="40" style="width: 100%;">
+                <legend>协作水平</legend>
+                <div class="row rowList" data-type="rational">
+                    <label class="col-md-2 form-label">价格合理性:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="rational" data-no="{{form.coordination.rational}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="paymentDays">
+                    <label class="col-md-2 form-label">账期长短:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="paymentDays" data-no="{{form.coordination.paymentDays}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="returnPolicy">
+                    <label class="col-md-2 form-label">退货保证:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="returnPolicy" data-no="{{form.coordination.returnPolicy}}"></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--物流及交付{-->
+        <div class="row">
+            <fieldset data-item="logistics" data-ratio="15" style="width: 100%;">
+                <legend>物流及交付</legend>
+                <div class="row rowList" data-type="deliveryTime">
+                    <label class="col-md-2 form-label">交&emsp;&emsp;期:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="deliveryTime" data-no="{{form.logistics.deliveryTime}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="transportMode">
+                    <label class="col-md-2 form-label">运输方式:</label>
+                    <div class="col-md-6">
+                        <label class="text-l selectedName multipleChoice" data-type="transportMode" data-no="{{form.logistics.transportMode}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="needRushOrder">
+                    <label class="col-md-2 form-label">承接紧急订单:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="needRushOrder" data-no="{{form.logistics.needRushOrder}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="rushOrderRatio">
+                    <label class="col-md-2 form-label">承接程度:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="rushOrderRatio" data-no="{{form.logistics.rushOrderRatio}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="preWarningSystem">
+                    <label class="col-md-2 form-label">预警系统:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="preWarningSystem" data-no="{{form.logistics.preWarningSystem}}"></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--活动配合度{-->
+        <div class="row">
+            <fieldset data-item="compatibility" data-ratio="10" style="width: 100%;">
+                <legend>活动配合度</legend>
+                <div class="row rowList" data-type="timeliness">
+                    <label class="col-md-2 form-label">样品提供及时性:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="timeliness" data-no="{{form.compatibility.timeliness}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="supplyRatio">
+                    <label class="col-md-2 form-label">文案提供度:</label>
+                    <div class="col-md-6">
+                        <label class="selectedName" data-type="supplyRatio" data-no="{{form.compatibility.supplyRatio}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="giftSupply">
+                    <label class="col-md-2 form-label">赠品提供:</label>
+                    <div class="col-md-6 ">
+                        <label class="selectedName" data-type="giftSupply" data-no="{{form.compatibility.giftSupply}}"></label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="afterSale">
+                    <label class="col-md-2 form-label">售后相关处理:</label>
+                    <div class="col-md-8">
+                        <label class="text-l selectedName multipleChoice" data-type="afterSale" data-no="{{form.compatibility.afterSale}}"></label>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+    </div>
+</script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-public/mustache.min.js"></script>
+
+<script src="../../resource/suppliersAssess/suppliersAssessDetail.js"></script>
+
+</html>

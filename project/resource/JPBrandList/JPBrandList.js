@@ -134,7 +134,7 @@ $(document).ready(function () {
 function init() {
     $.ajax({
         type: 'GET',
-        url: '/shili/json/JPBrandList.json'
+        url: 'JPBrandList.json'
     }).done(function (data) {
         if (data && data.success) {
 

@@ -5,6 +5,8 @@
 $(document).ready(function () {
     var idx = window.location.search.substring(1).split('=')[1];
 
+    !idx && $("#J_tempSave,#noteMsg").removeClass('hidden');
+
     init(idx);
 
     //选择供应商类型
@@ -16,8 +18,8 @@ $(document).ready(function () {
     //选择radio,计算得分和等级
     $('.J_radio').on('click', total);
 
-    //保存
-    $('#J_save').on('click', function () {
+    //临时保存，用于批量新增，避免每次保存就导出一个json
+    $('#J_tempSave').on('click', function () {
         var ifSure = true;
         $('.radioList').each(function () {
             var $this = $(this),
@@ -31,62 +33,41 @@ $(document).ready(function () {
 
         if (!ifSure) return alert('存在未选择的项目，请选择后再保存');
 
-        var obj = {},
-            form = {};
+        updateForms(idx);
+        alert('临时保存成功，请添加下一条，请勿刷新页面，如想结束添加，可直接点击保存按钮，导出assessmentForms.json文件');
 
-        $('fieldset:not(.basic-msg)').each(function () {
+        $('input[type="text"],textarea').val('');
+        $('input[type="radio"],input[type="checkbox"]').prop('checked', false);
+        $('#totalSituation').addClass('hidden');
+    });
+
+    //保存
+    $('#J_save').on('click', function () {
+
+        var ifSure = true;
+        $('.radioList').each(function () {
             var $this = $(this),
-                item = $this.data('item');
+                $rowBox = $this.closest('.row');
 
-            form[item] = {};
-            $this.find('.rowList').each(function () {
-                var _this = $(this),
-                    type = _this.data('type'),
-                    no = _this.find('.J_radio:checked').data('no');
-
-                //多选
-                if (_this.find('.J_radio[type="checkbox"]').length != 0) {
-                    no = [];
-                    _this.find('.J_radio[type="checkbox"]:checked').each(function () {
-                        no.push($(this).data('no'));
-                    });
-                }
-
-                form[item][type] = no;
-            });
+            $rowBox.removeClass('no-choice');
+            if ($this.find('input[type="radio"]:checked').length != 0) return;
+            $rowBox.addClass('no-choice');
+            ifSure = false;
         });
 
-        obj.id = idx || oldForms.list.length + 1;
-        obj.name = $.trim($('#J_name').val());
-        obj.legalPerson = $.trim($('#J_legalPerson').val());
-        obj.phone = $.trim($('#J_phone').val());
-        obj.productName = $.trim($('#J_productName').val());
-        obj.productType = $.trim($('#J_productType').val());
-        obj.period = $.trim($('#J_period').val());
-        obj.old = $.trim($('#J_old').val());
-        obj.address = $.trim($('#J_address').val());
-        obj.totalScore = $('#totalScore').text();
-        obj.totalGrade = $('#totalGrade').text();
-        obj.form = form;
+        if (!ifSure && !confirm('存在未选择的项目，确定放弃本次添加，并保存之前添加的评估？')) return;
 
-        if (idx) {
-            $.each(oldForms.list, function (i) {
-                if (this.id == idx) {
-                    oldForms.list[i] = obj;
-                }
-            });
-        } else {
-            oldForms.list.push(obj);
-        }
+        updateForms(idx);
 
         funDownload(JSON.stringify(oldForms), 'assessmentForms.json');
+        alert('保存成功，需将导出的json文件上传后方能生效');
     });
 });
 
 function init(idx) {
     $.ajax({
         type: 'GET',
-        url: '../../resource/suppliersAssess/assessmentForms.json'
+        url: '/shili/json/assessmentForms.json'
     }).done(function (data) {
         oldForms = data ? data : {"list": []};
 
@@ -175,6 +156,57 @@ function total() {
 
     $('#totalScore').text(totalScore.toFixed(2));
     $('#totalGrade').text(totalGrade);
+}
+
+//更新oldForms数据
+function updateForms(idx) {
+    var obj = {},
+        form = {};
+
+    $('fieldset:not(.basic-msg)').each(function () {
+        var $this = $(this),
+            item = $this.data('item');
+
+        form[item] = {};
+        $this.find('.rowList').each(function () {
+            var _this = $(this),
+                type = _this.data('type'),
+                no = _this.find('.J_radio:checked').data('no');
+
+            //多选
+            if (_this.find('.J_radio[type="checkbox"]').length != 0) {
+                no = [];
+                _this.find('.J_radio[type="checkbox"]:checked').each(function () {
+                    no.push($(this).data('no'));
+                });
+            }
+
+            form[item][type] = no;
+        });
+    });
+
+    obj.id = idx || oldForms.list.length + 1;
+    obj.name = $.trim($('#J_name').val());
+    obj.legalPerson = $.trim($('#J_legalPerson').val());
+    obj.phone = $.trim($('#J_phone').val());
+    obj.productName = $.trim($('#J_productName').val());
+    obj.productType = $.trim($('#J_productType').val());
+    obj.period = $.trim($('#J_period').val());
+    obj.old = $.trim($('#J_old').val());
+    obj.address = $.trim($('#J_address').val());
+    obj.totalScore = $('#totalScore').text();
+    obj.totalGrade = $('#totalGrade').text();
+    obj.form = form;
+
+    if (idx) {
+        $.each(oldForms.list, function (i) {
+            if (this.id == idx) {
+                oldForms.list[i] = obj;
+            }
+        });
+    } else {
+        oldForms.list.push(obj);
+    }
 }
 
 //导出JSON

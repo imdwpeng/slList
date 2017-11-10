@@ -34,7 +34,11 @@ $(document).ready(function () {
     });
 
     $('#formList')
-    // 修改
+    //详情
+        .on('click', '.J_detail', function () {
+            window.open('suppliersAssessDetail.html?idx=' + $(this).data('id'), '', 'channelmode=yes,width=1080,height=800,left=100,top=100');
+        })
+        // 修改
         .on('click', '.J_update', function () {
             window.open('suppliersAssessUpdate.html?idx=' + $(this).data('id'), '', 'channelmode=yes,width=1080,height=800,left=100,top=100');
         })
@@ -53,6 +57,7 @@ $(document).ready(function () {
             });
 
             $this.closest('.rowList').remove();
+            alert('删除成功，如不再删除其他数据，请点击保存，然后将导出的json文件上传后方能生效');
         });
 
     //保存
@@ -66,7 +71,7 @@ $(document).ready(function () {
 function init() {
     $.ajax({
         type: 'GET',
-        url: '../../resource/suppliersAssess/assessmentForms.json'
+        url: '/shili/json/assessmentForms.json'
     }).done(function (data) {
         oldForms = data ? data : {"list": []};
 

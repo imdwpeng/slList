@@ -38,7 +38,7 @@ if (arguments == 'prod') {
     fis.media('prod')
         .match('*', {
             deploy: fis.plugin('local-deliver', {
-                to: '../'
+                to: '../output'
             })
         })
         .match('*.{js, css}', {
