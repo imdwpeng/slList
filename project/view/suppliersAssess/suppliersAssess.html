@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供应商评估</title>
+
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-pc-common/common-pc.css">
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.css">
+    <link rel="stylesheet" href="../../resource/suppliersAssess/suppliersAssess.css">
+
+</head>
+<body>
+<div class="bd">
+    <div class="top">
+        <div class="title">
+            <div class="con checked">供应商评估</div>
+        </div>
+    </div>
+
+    <div class="container form-group" id="formSubmit">
+        <div class="row">
+            <label class="col-md-1 form-label">供应商</label>
+            <div class="col-md-3">
+                <input type="text" id="J_name">
+            </div>
+
+            <label class="col-md-1 form-label">类型</label>
+            <div class="col-md-3">
+                <select id="J_type">
+                    <option value="-1">--请选择--</option>
+                    <option value="海外">海外</option>
+                    <option value="一般贸易">一般贸易</option>
+                </select>
+            </div>
+
+            <label class="col-md-1 form-label">等级</label>
+            <div class="col-md-3">
+                <select id="J_grade">
+                    <option value="-1">--请选择--</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-1 text-c">
+                <button type="button" class="form-button" id="J_search">查询</button>
+                <button type="button" class="form-button" id="J_new">新增</button>
+                <button type="button" class="form-button" id="J_save">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container basicTable" id="formList">
+        <div class="row title">
+            <div class="col-1">供应商</div>
+            <div class="col-1">供应类型</div>
+            <div class="col-1">等级</div>
+            <div class="col-1">分数</div>
+            <div class="col-1">操作</div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script type="text/plain" id="J_template">
+{{#list}}
+    <div class="row rowList">
+        <div class="col-1 name">{{name}}</div>
+        <div class="col-1 type">{{typeName}}</div>
+        <div class="col-1 totalGrade">{{totalGrade}}</div>
+        <div class="col-1">{{totalScore}}</div>
+        <div class="col-1">
+            <button type="button" class="btn btn-basic btn-rounded J_detail" data-id="{{id}}">详情</button>
+            <button type="button" class="btn btn-basic btn-rounded J_update" data-id="{{id}}">修改</button>
+            <button type="button" class="btn btn-basic btn-rounded J_delete" data-id="{{id}}">删除</button>
+        </div>
+    </div>
+{{/list}}
+</script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-public/mustache.min.js"></script>
+
+<script src="../../resource/suppliersAssess/suppliersAssess.js"></script>
+
+</html>

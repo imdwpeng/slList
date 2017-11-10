@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增供应商评估</title>
+
+    <link rel="stylesheet" href="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-pc-common/common-pc.css">
+
+    <link rel="stylesheet" href="../../resource/suppliersAssess/suppliersAssessUpdate.css">
+
+</head>
+<body>
+
+<div class="score-box">
+    <p id="totalScore">0.00</p>
+    <hr>
+    <p id="totalGrade">D</p>
+</div>
+
+<div class="bd">
+    <div class="top">
+        <div class="title">
+            <div class="con checked">新增供应商评估</div>
+        </div>
+    </div>
+
+    <div class="container form-group">
+        <div class="row">
+            <fieldset class="basic-msg" style="width: 100%;">
+                <legend>供应商基本信息</legend>
+                <div class="row">
+                    <label class="col-md-2">名&emsp;&emsp;称</label>
+                    <div class="col-md-6">
+                        <input type="text" name="name" id="J_name">
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-md-2">法人代表</label>
+                    <div class="col-md-6">
+                        <input type="text" name="legalPerson" id="J_legalPerson">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">联系方式</label>
+                    <div class="col-md-6">
+                        <input type="text" name="phone" id="J_phone">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">产品名称</label>
+                    <div class="col-md-6">
+                        <input type="text" name="productName" id="J_productName">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">产品类型</label>
+                    <div class="col-md-6">
+                        <input type="text" name="productType" id="J_productType">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">供货周期</label>
+                    <div class="col-md-6">
+                        <input type="text" name="period" id="J_period">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">原有供应商情况</label>
+                    <div class="col-md-6">
+                        <input type="text" name="old" id="J_old">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <label class="col-md-2">地&emsp;&emsp;址</label>
+                    <div class="col-md-6">
+                        <textarea id="J_address" name="address" class="txt-area"></textarea>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+
+        <!--总体情况{-->
+        <div class="row">
+            <fieldset id="totalField" data-item="situation" data-ratio-1="5" data-ratio-2="0" style="width: 100%;">
+                <legend>总体情况</legend>
+                <div class="row rowList" data-type="type">
+                    <label class="col-md-2 form-label">供应商类型</label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" class="J_radio J_type" name="type" value="1" data-grade="0"
+                                           data-no="1">
+                                    海外
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" class="J_radio J_type" name="type" value="2" data-grade="0"
+                                           data-no="2">
+                                    一般贸易
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowList hidden" data-type="case" id="totalSituation">
+                    <label class="col-md-2 form-label">
+                        总体情况
+                        <br>
+                        <span class="color10">（可多选）</span>
+                    </label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="10" data-no="1">
+                                    央企资金支持
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="45" data-no="2">
+                                    海外有自己仓库原产国有自己仓库
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="45" data-no="3">
+                                    海外有自己的BD团队或员工
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--品牌优势{-->
+        <div class="row">
+            <fieldset class="hidden" data-item="brand" id="brandField" data-ratio-1="30" data-ratio-2="35"
+                      style="width: 100%;">
+                <legend>品牌优势</legend>
+                <div class="row rowList" data-type="brandType">
+                    <label class="col-md-2 form-label">品牌地位</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-2" class="J_radio" data-grade="60" data-no="1">
+                                    品牌方
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-2" class="J_radio" data-grade="50" data-no="2">
+                                    总代
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-2" class="J_radio" data-grade="40" data-no="3">
+                                    代理
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-2" class="J_radio" data-grade="30" data-no="4">
+                                    分销商
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-2" class="J_radio" data-grade="0" data-no="5">
+                                    无资质
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row rowList" data-type="authorization">
+                    <label class="col-md-2 form-label">授&emsp;&emsp;权</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-3" class="J_radio" data-grade="40" data-no="1">
+                                    可以授权
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-3" class="J_radio" data-grade="0" data-no="2">
+                                    不可以授权
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--协作水平{-->
+        <div class="row">
+            <fieldset data-item="coordination" data-ratio="40" style="width: 100%;">
+                <legend>协作水平</legend>
+                <div class="row rowList" data-type="rational">
+                    <label class="col-md-2 form-label">价格合理性</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-4" class="J_radio" data-grade="40" data-no="1">
+                                    所有供应商中价格最优
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-4" class="J_radio" data-grade="20" data-no="2">
+                                    价格一般
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-4" class="J_radio" data-grade="0" data-no="3">
+                                    价格差
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row rowList" data-type="paymentDays">
+                    <label class="col-md-2 form-label">账期长短</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="30" data-no="1">
+                                    月结30天含30天及以上
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="20" data-no="2">
+                                    半月结15天
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="15" data-no="3">
+                                    货到付款
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="5" data-no="4">
+                                    30%预付款70%见票付款
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="3" data-no="5">
+                                    50%预付款50%见票付款
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-5" class="J_radio" data-grade="0" data-no="6">
+                                    款到发货
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row rowList" data-type="returnPolicy">
+                    <label class="col-md-2 form-label">退货保证</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-6" class="J_radio" data-grade="30" data-no="1">
+                                    3个月内退货
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-6" class="J_radio" data-grade="15" data-no="2">
+                                    质量问题退货
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-6" class="J_radio" data-grade="0" data-no="3">
+                                    不退货
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--物流及交付{-->
+        <div class="row">
+            <fieldset data-item="logistics" data-ratio="15" style="width: 100%;">
+                <legend>物流及交付</legend>
+                <div class="row rowList" data-type="deliveryTime">
+                    <label class="col-md-2 form-label">交&emsp;&emsp;期</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-7" class="J_radio" data-grade="50" data-no="1">
+                                    交货非常及时，从未发生过拖延、延迟的现象(50)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-7" class="J_radio" data-grade="40" data-no="2">
+                                    交货比较及时，偶尔发生过拖延、延迟的现象(40)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-7" class="J_radio" data-grade="20" data-no="3">
+                                    交货一般，时有发生过拖延、延迟的现象(20)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-7" class="J_radio" data-grade="0" data-no="4">
+                                    交货不及时，经常发生过拖延、延迟的现象，难以保证需求(0)
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label class="color10 text-l">(按时交货率=按时交货批数/总进料批数)</label>
+                        <br>
+                        <label class="color10 text-l">(得分=按时交货率×10)</label>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="transportMode">
+                    <label class="col-md-2 form-label">
+                        运输方式
+                        <br/>
+                        <span class="color10">（可多选）</span>
+                    </label>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="7" data-no="1">
+                                    报价含运费送货到仓
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="7" data-no="2">
+                                    发运中对物品有必要的保护措施
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="6" data-no="3">
+                                    有自身运输机构
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="needRushOrder">
+                    <label class="col-md-2 form-label">承接紧急订单</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-8" class="J_radio" data-grade="10" data-no="1">
+                                    愿意
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-8" class="J_radio" data-grade="0" data-no="2">
+                                    不愿意
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row rowList" data-type="rushOrderRatio">
+                    <label class="col-md-2 form-label">承接程度</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-9" class="J_radio" data-grade="10" data-no="1">
+                                    基本满足需求
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-9" class="J_radio" data-grade="5" data-no="2">
+                                    满足需求较低
+                                </label>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row rowList" data-type="preWarningSystem">
+                    <label class="col-md-2 form-label">预警系统</label>
+                    <div class="col-md-1 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-10" class="J_radio" data-grade="10" data-no="1">
+                                    有
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-10" class="J_radio" data-grade="0" data-no="2">
+                                    无
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <label class="col-md-6 text-l color10">（确保在交货延迟时能及时通知我方作好相关处理）</label>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <!--活动配合度{-->
+        <div class="row">
+            <fieldset data-item="compatibility" data-ratio="10" style="width: 100%;">
+                <legend>活动配合度</legend>
+                <div class="row rowList" data-type="timeliness">
+                    <label class="col-md-2 form-label">样品提供及时性</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-11" class="J_radio" data-grade="10" data-no="1">
+                                    可以按要求及时提供样品
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-11" class="J_radio" data-grade="5" data-no="2">
+                                    可以提供样品，时间不及时
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-11" class="J_radio" data-grade="0" data-no="3">
+                                    不提供样品
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="supplyRatio">
+                    <label class="col-md-2 form-label">文案提供度</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-12" class="J_radio" data-grade="25" data-no="1">
+                                    按需求提供只有活动文案
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-12" class="J_radio" data-grade="0" data-no="2">
+                                    无文案提供
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="giftSupply">
+                    <label class="col-md-2 form-label">赠品提供</label>
+                    <div class="col-md-6 radioList">
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-13" class="J_radio" data-grade="25" data-no="1">
+                                    配合活动提供赠品
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-13" class="J_radio" data-grade="10" data-no="2">
+                                    提供少量赠品
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 radio">
+                                <label>
+                                    <input type="radio" name="r-13" class="J_radio" data-grade="0" data-no="3">
+                                    无赠品提供
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row rowList" data-type="afterSale">
+                    <label class="col-md-2 form-label">
+                        售后相关处理
+                        <br>
+                        <span class="color10">（可多选）</span>
+                    </label>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="15" data-no="1">
+                                    针对质量问题提供授权和其他凭证或者开账户订货，并配合退换货
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="15" data-no="2">
+                                    三一五工商投诉需要供应商举证；网路上的博主扒皮拔草贴要配合解释，出现假货或者疑似假货配合举证
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1 checkbox">
+                                <label>
+                                    <input type="checkbox" class="J_radio" data-grade="10" data-no="3">
+                                    交货后，版本，印刷，包装变化配合解释和官方说明
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <!--}-->
+
+        <div class="row">
+            <div class="col-1 text-c">
+                <button type="button" class="form-button" id="J_save">保存</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
+<script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
+
+<script src="../../resource/suppliersAssess/suppliersAssessUpdate.js"></script>
+
+</html>

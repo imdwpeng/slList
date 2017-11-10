@@ -1,0 +1,19 @@
+.fuzzy-ul {
+    position: absolute;
+    border: 1px solid #ddd;
+    width: calc(100% - 30px);
+    padding: 10px;
+    z-index: 900;
+    background: #fff;
+    max-height: 116px;
+    overflow: auto;
+}
+
+.fuzzy-ul li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.fuzzy-ul li:hover {
+    background: rgba(57, 155, 255, 0.1);
+}

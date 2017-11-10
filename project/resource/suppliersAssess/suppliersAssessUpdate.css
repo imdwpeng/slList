@@ -1,0 +1,43 @@
+fieldset > .row {
+    margin: 10px 20px;
+}
+
+fieldset:not(.basic-msg) > .row:not(:last-of-type) {
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #ddd;
+}
+
+fieldset textarea.txt-area {
+    height: 100px;
+}
+
+fieldset legend {
+    font-size: 16px;
+}
+
+fieldset legend, fieldset .form-label {
+    font-weight: 700;
+}
+
+.score-box {
+    position: fixed;
+    top: 20%;
+    right: 10%;
+    padding: 6px 30px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 3px 3px 3px #5d5a5a;
+    color: #fff;
+    background: #545454;
+    z-index: 1000;
+}
+
+.score-box p {
+    margin: 0;
+}
+
+fieldset .row.no-choice {
+    border: 2px solid red !important;
+}

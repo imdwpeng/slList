@@ -1,0 +1,101 @@
+{
+  "list": [
+    {
+      "id": 1,
+      "name": "123二哥",
+      "legalPerson": "123如儿童",
+      "phone": "企鹅123",
+      "productName": "123",
+      "productType": "温柔",
+      "period": "水电费",
+      "old": "十多个d'f'g",
+      "address": "电饭锅电饭锅",
+      "totalScore":"98.0",
+      "totalGrade":"D",
+      "form": {
+        "situation": {
+          "type": 1,
+          "case": []
+        },
+        "brand": {
+          "brandType": 1,
+          "authorization": 1
+        },
+        "coordination": {
+          "rational": 2,
+          "paymentDays": 2,
+          "returnPolicy": 2
+        },
+        "logistics": {
+          "deliveryTime": 2,
+          "transportMode": [
+            1,
+            2
+          ],
+          "needRushOrder": 1,
+          "rushOrderRatio": 2,
+          "preWarningSystem": 1
+        },
+        "compatibility": {
+          "timeliness": 1,
+          "supplyRatio": 1,
+          "giftSupply": 1,
+          "afterSale": [
+            1,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": 2,
+      "name": "请问",
+      "legalPerson": "123",
+      "phone": "水电费",
+      "productName": "gf好问题",
+      "productType": "真真正正",
+      "period": "123124234",
+      "old": "SD发点股东发换个",
+      "address": "VC病入膏肓热导管",
+      "totalScore":"98.0",
+      "totalGrade":"D",
+      "form": {
+        "situation": {
+          "type": 1,
+          "case": [
+            1,
+            2,
+            3
+          ]
+        },
+        "brand": {
+          "brandType": 3,
+          "authorization": 2
+        },
+        "coordination": {
+          "rational": 2,
+          "paymentDays": 1,
+          "returnPolicy": 1
+        },
+        "logistics": {
+          "deliveryTime": 3,
+          "transportMode": [
+            1,
+            3
+          ],
+          "needRushOrder": 2,
+          "rushOrderRatio": 2,
+          "preWarningSystem": 2
+        },
+        "compatibility": {
+          "timeliness": 3,
+          "supplyRatio": 1,
+          "giftSupply": 3,
+          "afterSale": [
+            1
+          ]
+        }
+      }
+    }
+  ]
+}
