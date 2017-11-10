@@ -10,10 +10,54 @@ $(document).ready(function () {
         fuzzySearch($(this));
     });
 
+    //选择模糊搜索列表
+    $('.bd').on('click', '.fuzzyUl li', function () {
+        var $this = $(this),
+            name = $this.text();
+        $this.closest('.fuzzyBox').find('input').val(name);
+        $('.fuzzyUl').remove();
+    });
+
     //查询
     $('#J_search').off().on('click', search);
     $('#formSubmit').on('keyup', function (e) {
         e.keyCode == 13 && search();
+    });
+
+    //新增
+    $('#J_new').winOpen({
+        url: function () {
+            return 'suppliersAssessUpdate.html';
+        },
+        width: 1080,
+        height: 800
+    });
+
+    $('#formList')
+    // 修改
+        .on('click', '.J_update', function () {
+            window.open('suppliersAssessUpdate.html?idx=' + $(this).data('id'), '', 'channelmode=yes,width=1080,height=800,left=100,top=100');
+        })
+        //删除
+        .on('click', '.J_delete', function () {
+            var $this = $(this),
+                idx = $this.data('id');
+
+            //全局变量
+            newForms = {};
+            newForms.list = [];
+
+            $.each(oldForms.list, function (i) {
+                if (this.id == idx) return;
+                newForms.list.push(oldForms.list[i]);
+            });
+
+            $this.closest('.rowList').remove();
+        });
+
+    //保存
+    $('#J_save').on('click', function () {
+        funDownload(JSON.stringify(newForms), 'assessmentForms.json');
     });
 
 
@@ -92,4 +136,20 @@ function fuzzySearch($obj) {
     html += '</ul>';
 
     $obj.after(html);
+}
+
+//导出JSON
+function funDownload(content, filename) {
+    // 创建隐藏的可下载链接
+    var eleLink = document.createElement('a');
+    eleLink.download = filename;
+    eleLink.style.display = 'none';
+    // 字符内容转变成blob地址
+    var blob = new Blob([content]);
+    eleLink.href = URL.createObjectURL(blob);
+    // 触发点击
+    document.body.appendChild(eleLink);
+    eleLink.click();
+    // 然后移除
+    document.body.removeChild(eleLink);
 }

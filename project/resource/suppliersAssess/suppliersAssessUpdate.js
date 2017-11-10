@@ -79,7 +79,7 @@ $(document).ready(function () {
             oldForms.list.push(obj);
         }
 
-        funDownload(JSON.stringify(oldForms), 'test.json');
+        funDownload(JSON.stringify(oldForms), 'assessmentForms.json');
     });
 });
 
