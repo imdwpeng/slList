@@ -24,14 +24,12 @@ $(document).ready(function () {
         e.keyCode == 13 && search();
     });
 
-    //新增
-    $('#J_new').winOpen({
-        url: function () {
-            return 'suppliersAssessUpdate.html';
-        },
-        width: 1080,
-        height: 800
+    //导入
+    $('#J_import').on('click', function () {
+        $('#J_file').click();
     });
+
+    $('#J_file').on('change', readFile);
 
     $('#formList')
     //详情
@@ -40,7 +38,8 @@ $(document).ready(function () {
         })
         // 修改
         .on('click', '.J_update', function () {
-            window.open('suppliersAssessUpdate.html?idx=' + $(this).data('id'), '', 'channelmode=yes,width=1080,height=800,left=100,top=100');
+            var html = Mustache.render($('#J_tempUpdate').html(), {list: list});
+            $('#updateBox').empty().append(html);
         })
         //删除
         .on('click', '.J_delete', function () {
@@ -157,4 +156,86 @@ function funDownload(content, filename) {
     eleLink.click();
     // 然后移除
     document.body.removeChild(eleLink);
+}
+
+//读取文件
+function readFile() {
+
+    var file = $('#J_file').get(0).files[0];
+    var reader = new FileReader();
+    reader.readAsBinaryString(file);
+
+    reader.onload = function (e) {
+        var data = e.target.result;
+        var wb = XLSX.read(data, {type: "binary"});
+
+        //整理excel数据
+        var sheet = wb.Sheets.Sheet1;
+        var obj = {},
+            form = {},
+            situation = {},
+            brand = {},
+            coordination = {},
+            logistics = {},
+            compatibility = {};
+
+        situation.type = sheet.F6 ? 1 : 2;
+        situation.code = sheet.F6 ? sheet.F6.w : '';
+
+        brand.brandType = sheet.F10 ? sheet.F10.w : '';
+        brand.authorization = sheet.L10 ? sheet.L10.w : '';
+
+        coordination.rational = sheet.F17 ? sheet.F17.w : '';
+        coordination.paymentDays = sheet.L17 ? sheet.L17.w : '';
+        coordination.returnPolicy = sheet.P17 ? sheet.P17.w : '';
+
+        var transportMode = [];
+        if (sheet.L25) {
+            transportMode.push(sheet.L25.w);
+        }
+        if (sheet.L27) {
+            transportMode.push(sheet.L27.w);
+        }
+        if (sheet.L29) {
+            transportMode.push(sheet.L29.w);
+        }
+
+        logistics.deliveryTime = sheet.F25 ? sheet.F25.w : '';
+        logistics.transportMode = transportMode;
+        logistics.needRushOrder = sheet.P25 ? sheet.P25.w : '';
+        logistics.rushOrderRatio = sheet.P27 ? sheet.P27.w : '';
+        logistics.preWarningSystem = sheet.F32 ? sheet.F32.w : '';
+
+        var afterSale = [];
+        if (sheet.F41) {
+            afterSale = sheet.F41.w.split(',');
+        }
+
+        compatibility.timeliness = sheet.F36 ? sheet.F36.w : '';
+        logistics.supplyRatio = sheet.L36 ? sheet.L36.w : '';
+        logistics.needRushOrder = sheet.P36 ? sheet.P36.w : '';
+        logistics.giftSupply = sheet.P36 ? sheet.P36.w : '';
+        logistics.afterSale = afterSale;
+
+        form.situation = situation;
+        form.brand = brand;
+        form.coordination = coordination;
+        form.logistics = logistics;
+        form.compatibility = compatibility;
+
+        obj.form = form;
+
+        obj.name = sheet.C2 ? sheet.C2.w : '';
+        obj.legalPerson = sheet.H2 ? sheet.H2.w : '';
+        obj.phone = sheet.O2 ? sheet.O2.w : '';
+        obj.productName = sheet.C3 ? sheet.C3.w : '';
+        obj.productType = sheet.H3 ? sheet.H3.w : '';
+        obj.period = sheet.M3 ? sheet.M3.w : '';
+        obj.old = sheet.O3 ? sheet.O3.w : '';
+        obj.address = sheet.M2 ? sheet.M2.w : '';
+        obj.totalScore = sheet.D44 ? sheet.D44.w : '';
+        obj.totalGrade = sheet.K44 ? sheet.K44.w : '';
+
+        console.log(obj);
+    };
 }
