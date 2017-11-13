@@ -24,6 +24,8 @@
         </div>
     </div>
 
+    <div id="detailBox"></div>
+    <div id="historyBox"></div>
 </div>
 </body>
 <script type="text/plain" id="J_template">
@@ -217,14 +219,52 @@
                 </div>
                 <div class="row rowList" data-type="afterSale">
                     <label class="col-md-2 form-label">售后相关处理:</label>
-                    <div class="col-md-8">
+                    <div class="col-md">
                         <label class="text-l selectedName multipleChoice" data-type="afterSale" data-no="{{form.compatibility.afterSale}}"></label>
                     </div>
                 </div>
             </fieldset>
         </div>
         <!--}-->
+    </div>
 
+</script>
+<script type="text/plain" id="J_tempHistory">
+    <div class="top">
+        <div class="title">
+            <div class="con checked">修改历史</div>
+        </div>
+    </div>
+    <div class="container basicTable margin-t-20">
+        <div class="row title border-t-none">
+            <div class="col-4">修改内容</div>
+            <div class="col-1">得分/等级</div>
+            <div class="col-1">修改时间</div>
+        </div>
+        {{#list}}
+        <div class="row">
+            <div class="col-4 padding-0">
+                {{#recordList}}
+                <div class="row row-update historyBox">
+                    <div class="col-1 flex-center border-none itemName" data-name="{{name}}"></div>
+                    <div class="col-7">
+                        <ul class="ul-update-list">
+                            <li class="optionName" data-option="{{oldMsg}}">{{oldMsg}}</li>
+                            <li class="optionName" data-option="{{nowMsg}}">{{nowMsg}}</li>
+                        </ul>
+                    </div>
+                </div>
+                {{/recordList}}
+            </div>
+            <div class="col-1 flex-center">
+                <ul class="ul-update-list">
+                    <li>{{oldScore}} / {{oldGrade}}</li>
+                    <li>{{newScore}} / {{newGrade}}</li>
+                </ul>
+            </div>
+            <div class="col-1 flex-center">{{t}}</div>
+        </div>
+        {{/list}}
     </div>
 </script>
 <script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>

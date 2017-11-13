@@ -1,3 +1,8 @@
+
+fieldset {
+    margin: 10px 0;
+}
+
 fieldset > .row {
     margin: 10px 20px;
 }
@@ -24,8 +29,8 @@ fieldset legend, fieldset .form-label {
 
 .score-box {
     position: fixed;
-    top: 20%;
-    right: 10%;
+    top: 15%;
+    right: 7%;
     padding: 6px 30px;
     font-size: 20px;
     font-weight: 700;
@@ -43,4 +48,50 @@ fieldset legend, fieldset .form-label {
 
 fieldset .row.no-choice {
     border: 2px solid red !important;
+}
+
+.row .top {
+    position: relative;
+    padding: 10px 18px;
+    color: #5faee3;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.row .top:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100px;
+    border-bottom: 2px solid #5faee3;
+}
+
+.row.row-update > div {
+    padding: 0 10px;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ul-update-list li:first-of-type {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.ul-update-list li:first-of-type:after {
+    content: '↓';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #f00;
+}
+
+.row.row-update:not(:last-of-type) {
+    border-bottom: 1px solid #ddd;
 }

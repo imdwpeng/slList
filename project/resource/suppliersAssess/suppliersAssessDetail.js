@@ -8,19 +8,32 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: '/shili/json/assessmentForms.json'
+        url: '../../resource/suppliersAssess/assessmentForms.json'
+        // url: '/shili/json/assessmentForms.json'
     }).done(function (data) {
 
-        var list = {};
+        var list = {},
+            updateRecordList = [];
         $.each(data.list, function (i) {
             if (this.id != idx) return;
             list = data.list[i];
+            updateRecordList = list.updateRecordList;
             $('#totalScore').text(list.totalScore);
             $('#totalGrade').text(list.totalGrade);
         });
 
-        var html = Mustache.render($('#J_template').html(), list);
-        $('.bd').append(html);
+        //详情
+        var htmlDetail = Mustache.render($('#J_template').html(), list);
+        $('#detailBox').empty().append(htmlDetail);
+
+        var historyList = [];
+        $.each(updateRecordList, function (k, v) {
+
+        });
+
+        //修改历史
+        var htmlHistory = Mustache.render($('#J_tempHistory').html(), {list: updateRecordList});
+        $('#historyBox').empty().append(htmlHistory);
 
         noToName();
     });
@@ -29,7 +42,8 @@ $(document).ready(function () {
 function noToName() {
     $.ajax({
         type: 'GET',
-        url: '/shili/json/noToName.json'
+        url: '../../resource/suppliersAssess/noToName.json'
+        // url: '/shili/json/noToName.json'
     }).done(function (data) {
         $('fieldset:not(".basic-msg")').each(function () {
             var $this = $(this),
@@ -40,18 +54,30 @@ function noToName() {
                     type = _this.data('type'),
                     no = _this.data('no');
 
-                _this.text(data[item][type][no]);
+                _this.text(data.optionName[item][type][no]);
 
                 //多选
                 if (no && _this.hasClass('multipleChoice')) {
                     var noAttr = no.split(','),
                         name = '';
                     $.each(noAttr, function () {
-                        name += '<p class="margin-t-0">' + data[item][type][this] + '</p>';
+                        name += '<p class="margin-t-0">' + data.optionName[item][type][this] + '</p>';
                     });
                     _this.html(name);
 
                 }
+            });
+
+            //历史纪录
+            $('.historyBox').each(function () {
+                var _this = $(this),
+                    $itemName = _this.find('.itemName'),
+                    $optionName = _this.find('.optionName'),
+                    nameAttr = $itemName.data('name').split('.'),
+                    name = nameAttr.length == 2 ? data.itemName[nameAttr[0]][nameAttr[1]] : data.itemName[nameAttr[0]];
+
+                $itemName.text(name);
+
             });
         });
 

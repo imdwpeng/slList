@@ -11,7 +11,7 @@
 </head>
 <body>
 <input type="file" multiple="multiple" class="hidden" id="J_file"/>
-<div id="updateBox"></div>
+<div class="update-layout hidden" id="updateLayout"></div>
 
 <div class="bd">
     <div class="top">
@@ -57,13 +57,6 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="row">
-            <label class="col-1 text-r color10 padding-b-10">
-                注：不能同时新增、修改或删除，每次修改数据后请将导出的json文件先上传，然后重新查询，再进行下一步操作
-            </label>
-        </div>
-    </div>
     <div class="container basicTable" id="formList">
         <div class="row title">
             <div class="col-1">供应商</div>
@@ -78,11 +71,11 @@
 </body>
 <script type="text/plain" id="J_template">
 {{#list}}
-    <div class="row rowList">
+    <div class="row rowList" data-id="{{id}}">
         <div class="col-1 name">{{name}}</div>
         <div class="col-1 type">{{typeName}}</div>
         <div class="col-1 totalGrade">{{totalGrade}}</div>
-        <div class="col-1">{{totalScore}}</div>
+        <div class="col-1 totalScore">{{totalScore}}</div>
         <div class="col-1">
             <button type="button" class="btn btn-basic btn-rounded J_detail" data-id="{{id}}">详情</button>
             <button type="button" class="btn btn-basic btn-rounded J_update" data-id="{{id}}">修改</button>
@@ -92,62 +85,67 @@
 {{/list}}
 </script>
 <script type="text/plain" id="J_tempUpdate">
-    <div class="container form-group">
+    <div class="score-box updateBox">
+        <p id="totalScore">{{totalScore}}</p>
+        <hr>
+        <p id="totalGrade">{{totalGrade}}</p>
+    </div>
+    <div class="container form-group updateBox">
         <div class="row">
             <fieldset class="basic-msg" style="width: 100%;">
                 <legend>供应商基本信息</legend>
                 <div class="row">
                     <label class="col-md-2">名&emsp;&emsp;称</label>
                     <div class="col-md-6">
-                        <input type="text" name="name" id="J_name">
+                        <input type="text" name="name" id="J_name" value="{{name}}">
                     </div>
                 </div>
                 <div class="row">
                     <label class="col-md-2">法人代表</label>
                     <div class="col-md-6">
-                        <input type="text" name="legalPerson" id="J_legalPerson">
+                        <input type="text" name="legalPerson" id="J_legalPerson" value="{{legalPerson}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">联系方式</label>
                     <div class="col-md-6">
-                        <input type="text" name="phone" id="J_phone">
+                        <input type="text" name="phone" id="J_phone" value="{{phone}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">产品名称</label>
                     <div class="col-md-6">
-                        <input type="text" name="productName" id="J_productName">
+                        <input type="text" name="productName" id="J_productName" value="{{productName}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">产品类型</label>
                     <div class="col-md-6">
-                        <input type="text" name="productType" id="J_productType">
+                        <input type="text" name="productType" id="J_productType" value="{{productType}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">供货周期</label>
                     <div class="col-md-6">
-                        <input type="text" name="period" id="J_period">
+                        <input type="text" name="period" id="J_period" value="{{period}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">原有供应商情况</label>
                     <div class="col-md-6">
-                        <input type="text" name="old" id="J_old">
+                        <input type="text" name="old" id="J_old" value="{{old}}">
                     </div>
                 </div>
 
                 <div class="row">
                     <label class="col-md-2">地&emsp;&emsp;址</label>
                     <div class="col-md-6">
-                        <textarea id="J_address" name="address" class="txt-area"></textarea>
+                        <textarea id="J_address" name="address" class="txt-area">{{address}}</textarea>
                     </div>
                 </div>
             </fieldset>
@@ -713,13 +711,7 @@
 
         <div class="row">
             <div class="col-1 text-c">
-                <button type="button" class="form-button hidden" id="J_tempSave">临时保存</button>
-                <button type="button" class="form-button" id="J_save">保存</button>
-            </div>
-        </div>
-        <div class="row hidden" id="noteMsg">
-            <div class="col-1 color10">
-                注：临时保存：用于批量添加评估表，每添加一次评估表，点击一次临时保存，待添加完后，再点击保存按钮，导出文件
+                <button type="button" class="form-button" id="J_tempSave" data-id="{{id}}">保存</button>
             </div>
         </div>
     </div>
@@ -732,5 +724,6 @@
 <script src="../../resource/suppliersAssess/xlsx.js"></script>
 
 <script src="../../resource/suppliersAssess/suppliersAssess.js"></script>
+<script src="../../resource/suppliersAssess/update.js"></script>
 
 </html>
