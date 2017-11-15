@@ -77,12 +77,20 @@ fieldset .row.no-choice {
     align-items: center;
 }
 
-.ul-update-list li:first-of-type {
+.ul-update-list li, .ul-update-grade li {
+    padding: 5px 0;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ul-update-grade li:first-of-type {
     position: relative;
     padding-bottom: 20px;
 }
 
-.ul-update-list li:first-of-type:after {
+.ul-update-grade li:first-of-type:after {
     content: '↓';
     position: absolute;
     left: 50%;
@@ -92,6 +100,22 @@ fieldset .row.no-choice {
     color: #f00;
 }
 
+.row.row-update {
+    padding: 8px 0;
+}
+
+.row.row-update:first-of-type {
+    padding-top: 0;
+}
+
+.row.row-update:last-of-type {
+    padding-bottom: 0;
+}
+
 .row.row-update:not(:last-of-type) {
     border-bottom: 1px solid #ddd;
+}
+
+.basicTable>.row:not(.title) {
+    border-bottom: 2px solid #333;
 }

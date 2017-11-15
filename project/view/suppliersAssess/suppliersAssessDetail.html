@@ -235,29 +235,39 @@
             <div class="con checked">修改历史</div>
         </div>
     </div>
-    <div class="container basicTable margin-t-20">
-        <div class="row title border-t-none">
-            <div class="col-4">修改内容</div>
+    <div class="container basicTable margin-t-20 margin-b-50">
+        <div class="row title border-t-none padding-0">
+            <div class="col-7 padding-0">
+                <div class="row">
+                    <div class="col-1">选项</div>
+                    <div class="col-4">修改前</div>
+                    <div class="col-4">修改后</div>
+                </div>
+            </div>
             <div class="col-1">得分/等级</div>
             <div class="col-1">修改时间</div>
         </div>
         {{#list}}
         <div class="row">
-            <div class="col-4 padding-0">
+            <div class="col-7 padding-0">
                 {{#recordList}}
                 <div class="row row-update historyBox">
                     <div class="col-1 flex-center border-none itemName" data-name="{{name}}"></div>
-                    <div class="col-7">
-                        <ul class="ul-update-list">
-                            <li class="optionName" data-option="{{oldMsg}}">{{oldMsg}}</li>
-                            <li class="optionName" data-option="{{nowMsg}}">{{nowMsg}}</li>
+                    <div class="col-4">
+                        <ul class="ul-update-list text-l optionName" data-option="{{oldMsg}}">
+                            <li>● {{oldMsg}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-4">
+                        <ul class="ul-update-list text-l optionName" data-option="{{nowMsg}}">
+                            <li>● {{nowMsg}}</li>
                         </ul>
                     </div>
                 </div>
                 {{/recordList}}
             </div>
             <div class="col-1 flex-center">
-                <ul class="ul-update-list">
+                <ul class="ul-update-grade">
                     <li>{{oldScore}} / {{oldGrade}}</li>
                     <li>{{newScore}} / {{newGrade}}</li>
                 </ul>

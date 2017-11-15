@@ -54,7 +54,12 @@ $(document).ready(function () {
                 idx = $this.data('id');
 
             $this.closest('.rowList').remove();
-            alert('删除成功，如不再删除其他数据，请点击保存，然后将导出的json文件上传后方能生效');
+            $.each(oldForms.list, function (i) {
+                if (this.id == idx) {
+                    oldForms.list.splice(i, 1);
+                }
+            });
+            alert('删除成功');
         });
 
     $('#updateLayout')
@@ -78,6 +83,7 @@ $(document).ready(function () {
             $('#updateLayout').empty().addClass('hidden');
         }
     });
+
 });
 
 /*
@@ -113,8 +119,8 @@ function readFile() {
     $.each(files, function (i) {
         var file = files[i];
         var reader = new FileReader();
-        reader.readAsBinaryString(file);
 
+        reader.readAsBinaryString(file);
         reader.onload = function (e) {
             var data = e.target.result;
             var wb = XLSX.read(data, {type: "binary"});
@@ -173,6 +179,8 @@ function readFile() {
             form.logistics = logistics;
             form.compatibility = compatibility;
 
+            obj.id = oldForms.list.length + 1;
+            obj.typeName = sheet.F6 ? "海外" : "一般贸易";
             obj.name = sheet.C2 ? sheet.C2.w : '';
             obj.legalPerson = sheet.H2 ? sheet.H2.w : '';
             obj.phone = sheet.O2 ? sheet.O2.w : '';
@@ -186,11 +194,27 @@ function readFile() {
 
             obj.form = form;
 
+            //根据供应商名称判断是否存在该供应商
+            var ifRepeat = false;
+            $.each(oldForms.list, function () {
+                if (this.name == obj.name) {
+                    ifRepeat = true;
+                }
+            });
+
+            if (ifRepeat) return alert('"' + obj.name + '" 供应商已存在，请检查 "' + file.name + '"', 'failType');
+
+            //渲染列表
+            var html = Mustache.render($('#J_template').html(), {list: obj});
+            $('#formList').append(html);
+            alert('"' + file.name + '" 导入成功');
+            setTimeout(function () {
+                $('.alert.color7-bg').remove();
+            }, 3000);
+
             //更新全局保存的数据
             oldForms.list.push(obj);
         };
-
-        console.log(oldForms)
     });
 
 
@@ -290,7 +314,7 @@ function updateForms(idx) {
             oldForms.list[i] = obj;
         }
     });
-    console.log(oldForms)
+
     $('#updateLayout').addClass('hidden');
 
     //记录修改历史
@@ -309,7 +333,16 @@ function updateForms(idx) {
                 });
             }
 
-            if (typeof v == 'object') {
+            if ($.isArray(v) && v.sort().toString() != obj[k].sort().toString()) {
+                console.log(k, v, obj[k], out)
+                updateRecord.push({
+                    name: out ? out + '.' + k : k,
+                    oldMsg: v,
+                    nowMsg: obj[k]
+                });
+            }
+
+            if (!$.isArray(v) && typeof v == 'object') {
                 _updateHistory(v, obj[k], k)
             }
         });

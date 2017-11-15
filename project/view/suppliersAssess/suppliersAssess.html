@@ -57,9 +57,21 @@
         </div>
     </div>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <div class="btn-group btn-group-justified">
+                    <button type="button" class="btn-basic hidden" id="J_export">导出</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container basicTable" id="formList">
         <div class="row title">
-            <div class="col-1">供应商</div>
+            <div class="col-1">
+                <input type="checkbox" class="J_allCheck"/>
+                供应商
+            </div>
             <div class="col-1">供应类型</div>
             <div class="col-1">等级</div>
             <div class="col-1">分数</div>
@@ -72,7 +84,10 @@
 <script type="text/plain" id="J_template">
 {{#list}}
     <div class="row rowList" data-id="{{id}}">
-        <div class="col-1 name">{{name}}</div>
+        <div class="col-1 name">
+            <input type="checkbox" class="J_check" data-id="{{id}}"/>
+            {{name}}
+        </div>
         <div class="col-1 type">{{typeName}}</div>
         <div class="col-1 totalGrade">{{totalGrade}}</div>
         <div class="col-1 totalScore">{{totalScore}}</div>
@@ -83,6 +98,7 @@
         </div>
     </div>
 {{/list}}
+
 </script>
 <script type="text/plain" id="J_tempUpdate">
     <div class="score-box updateBox">
@@ -437,7 +453,7 @@
                 <legend>物流及交付</legend>
                 <div class="row rowList" data-type="deliveryTime">
                     <label class="col-md-2 form-label">交&emsp;&emsp;期</label>
-                    <div class="col-md-6 radioList">
+                    <div class="col-md-7 radioList">
                         <div class="row">
                             <div class="col-1 radio">
                                 <label>
@@ -475,7 +491,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label class="color10 text-l">(按时交货率=按时交货批数/总进料批数)</label>
                         <br>
                         <label class="color10 text-l">(得分=按时交货率×10)</label>
@@ -715,13 +731,14 @@
             </div>
         </div>
     </div>
+
 </script>
 <script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-jquery/jquery.min.js"></script>
 <script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-plugin/plugin.js"></script>
 <script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin/plugin-form/form.js"></script>
 <script src="http://ruhnn-web.oss-cn-hangzhou.aliyuncs.com/plugin-public/mustache.min.js"></script>
-<script src="../../resource/suppliersAssess/jszip.js"></script>
-<script src="../../resource/suppliersAssess/xlsx.js"></script>
+
+<script src="../../resource/suppliersAssess/xlsx.full.min.js"></script>
 
 <script src="../../resource/suppliersAssess/suppliersAssess.js"></script>
 <script src="../../resource/suppliersAssess/update.js"></script>

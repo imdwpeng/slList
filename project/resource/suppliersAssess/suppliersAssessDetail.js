@@ -8,8 +8,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: 'GET',
-        url: '../../resource/suppliersAssess/assessmentForms.json'
-        // url: '/shili/json/assessmentForms.json'
+        url: '/shili/json/assessmentForms.json'
     }).done(function (data) {
 
         var list = {},
@@ -78,6 +77,20 @@ function noToName() {
 
                 $itemName.text(name);
 
+                if (nameAttr.length == 2) {
+                    $optionName.each(function () {
+                        var optionAttr = $(this).data('option').toString().split(',');
+                        var options = '';
+
+                        $.each(optionAttr, function (i) {
+                            options += '<li>● '+ data.optionName[nameAttr[0]][nameAttr[1]][optionAttr[i]] +'</li>';
+                        });
+
+                        $(this).html(options);
+                    });
+                }else{
+
+                }
             });
         });
 

@@ -11,14 +11,15 @@
       "period": "水电费安师大asd",
       "old": "十多个d'f'gasd",
       "address": "电饭锅电饭锅asd安师大asd",
-      "totalScore": "88.10",
+      "totalScore": "91.35",
       "totalGrade": "A",
       "form": {
         "situation": {
           "type": 1,
           "case": [
             1,
-            2
+            2,
+            3
           ]
         },
         "brand": {
@@ -46,7 +47,8 @@
           "giftSupply": 1,
           "afterSale": [
             1,
-            2
+            2,
+            3
           ]
         }
       },
@@ -74,24 +76,58 @@
           "oldGrade": "B",
           "newScore": "88.10",
           "newGrade": "A"
+        },
+        {
+          "recordList": [
+            {
+              "name": "situation.case",
+              "oldMsg": [
+                1,
+                2
+              ],
+              "nowMsg": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "name": "compatibility.afterSale",
+              "oldMsg": [
+                1,
+                2
+              ],
+              "nowMsg": [
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "t": "2017-11-14 10:11",
+          "oldScore": "88.10",
+          "oldGrade": "A",
+          "newScore": "91.35",
+          "newGrade": "A"
         }
       ]
     },
     {
       "id": 2,
+      "typeName": "一般贸易",
       "name": "请问",
       "legalPerson": "123",
       "phone": "水电费",
       "productName": "gf好问题",
       "productType": "真真正正",
       "period": "123124234",
-      "old": "SD发点股东发换个",
-      "address": "VC病入膏肓热导管",
-      "totalScore": "98.0",
-      "totalGrade": "D",
+      "old": "asdasd",
+      "address": "ddddddd",
+      "totalScore": "95.75",
+      "totalGrade": "A",
       "form": {
         "situation": {
-          "type": 1,
+          "type": 2,
           "case": [
             1,
             2,
@@ -99,34 +135,155 @@
           ]
         },
         "brand": {
-          "brandType": 3,
-          "authorization": 2
+          "brandType": 2,
+          "authorization": 1
         },
         "coordination": {
-          "rational": 2,
+          "rational": 1,
           "paymentDays": 1,
           "returnPolicy": 1
         },
         "logistics": {
-          "deliveryTime": 3,
+          "deliveryTime": 1,
           "transportMode": [
             1,
+            2,
             3
           ],
-          "needRushOrder": 2,
+          "needRushOrder": 1,
           "rushOrderRatio": 2,
-          "preWarningSystem": 2
+          "preWarningSystem": 1
         },
         "compatibility": {
-          "timeliness": 3,
+          "timeliness": 1,
           "supplyRatio": 1,
-          "giftSupply": 3,
+          "giftSupply": 1,
           "afterSale": [
-            1
+            1,
+            2,
+            3
           ]
         }
       },
-      "typeName": "海外"
+      "updateRecordList": [
+        {
+          "recordList": [
+            {
+              "name": "address",
+              "oldMsg": "VC病入膏肓热导管",
+              "nowMsg": "ddddddd"
+            },
+            {
+              "name": "situation.type",
+              "oldMsg": 1,
+              "nowMsg": 2
+            },
+            {
+              "name": "brand.brandType",
+              "oldMsg": 3,
+              "nowMsg": 2
+            },
+            {
+              "name": "coordination.paymentDays",
+              "oldMsg": 1,
+              "nowMsg": 6
+            },
+            {
+              "name": "compatibility.afterSale",
+              "oldMsg": [
+                1
+              ],
+              "nowMsg": [
+                1,
+                2
+              ]
+            }
+          ],
+          "t": "2017-11-14 11:12",
+          "oldScore": "98.0",
+          "oldGrade": "D",
+          "newScore": "48.70",
+          "newGrade": "D"
+        },
+        {
+          "recordList": [
+            {
+              "name": "old",
+              "oldMsg": "SD发点股东发换个",
+              "nowMsg": "asdasd"
+            },
+            {
+              "name": "brand.authorization",
+              "oldMsg": 2,
+              "nowMsg": 1
+            },
+            {
+              "name": "coordination.rational",
+              "oldMsg": 2,
+              "nowMsg": 1
+            },
+            {
+              "name": "coordination.paymentDays",
+              "oldMsg": 6,
+              "nowMsg": 1
+            },
+            {
+              "name": "logistics.deliveryTime",
+              "oldMsg": 3,
+              "nowMsg": 1
+            },
+            {
+              "name": "logistics.transportMode",
+              "oldMsg": [
+                1,
+                3
+              ],
+              "nowMsg": [
+                1,
+                2,
+                3
+              ]
+            },
+            {
+              "name": "logistics.needRushOrder",
+              "oldMsg": 2,
+              "nowMsg": 1
+            },
+            {
+              "name": "logistics.preWarningSystem",
+              "oldMsg": 2,
+              "nowMsg": 1
+            },
+            {
+              "name": "compatibility.timeliness",
+              "oldMsg": 3,
+              "nowMsg": 1
+            },
+            {
+              "name": "compatibility.giftSupply",
+              "oldMsg": 3,
+              "nowMsg": 1
+            },
+            {
+              "name": "compatibility.afterSale",
+              "oldMsg": [
+                1,
+                2
+              ],
+              "nowMsg": [
+                1,
+                2,
+                3
+              ]
+            }
+          ],
+          "t": "2017-11-14 11:13",
+          "oldScore": "48.70",
+          "oldGrade": "D",
+          "newScore": "95.75",
+          "newGrade": "A"
+        }
+      ]
     }
   ]
 }
