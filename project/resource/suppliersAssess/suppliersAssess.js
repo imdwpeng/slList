@@ -164,7 +164,7 @@ function readFile() {
                 compatibility = {};
 
             situation.type = sheet.F6 ? 1 : 2;
-            situation.code = sheet.F6 ? sheet.F6.w : '';
+            situation.case = sheet.F6 ? sheet.F6.w.split(',') : '';
 
             brand.brandType = sheet.F10 ? sheet.F10.w : '';
             brand.authorization = sheet.L10 ? sheet.L10.w : '';
@@ -175,19 +175,15 @@ function readFile() {
 
             var transportMode = [];
             if (sheet.L25) {
-                transportMode.push(1 + sheet.L25.w);
-            }
-            if (sheet.L27) {
-                transportMode.push(2 + sheet.L27.w);
-            }
-            if (sheet.L29) {
-                transportMode.push(3 + sheet.L29.w);
+                $.each(sheet.L25.w.split(','), function (i) {
+                    transportMode.push(i + 1 + this);
+                })
             }
 
             logistics.deliveryTime = sheet.F25 ? sheet.F25.w : '';
             logistics.transportMode = transportMode;
-            logistics.needRushOrder = sheet.P25 ? sheet.P25.w : '';
-            logistics.rushOrderRatio = sheet.P27 ? sheet.P27.w : '';
+            logistics.needRushOrder = sheet.P25 ? sheet.P25.w.split(',')[0] : '';
+            logistics.rushOrderRatio = sheet.P25 ? sheet.P25.w.split(',')[1] : '';
             logistics.preWarningSystem = sheet.F32 ? sheet.F32.w : '';
 
             var afterSale = [];
@@ -208,7 +204,7 @@ function readFile() {
             form.compatibility = compatibility;
 
             obj.id = oldForms.list.length + 1;
-            obj.typeName = sheet.F6 ? "海外" : "一般贸易";
+            obj.typeName = sheet.F6.w ? "海外" : "一般贸易";
             obj.name = sheet.C2 ? sheet.C2.w : '';
             obj.legalPerson = sheet.H2 ? sheet.H2.w : '';
             obj.phone = sheet.O2 ? sheet.O2.w : '';
@@ -217,10 +213,11 @@ function readFile() {
             obj.period = sheet.M3 ? sheet.M3.w : '';
             obj.old = sheet.O3 ? sheet.O3.w : '';
             obj.address = sheet.M2 ? sheet.M2.w : '';
-            obj.totalScore = sheet.D44 ? sheet.D44.w : '';
-            obj.totalGrade = sheet.K44 ? sheet.K44.w : '';
 
             obj.form = form;
+
+            _initTotal(obj);
+
             console.log(obj)
             //根据供应商名称判断是否存在该供应商
             var ifRepeat = false;
@@ -245,7 +242,141 @@ function readFile() {
         };
     });
 
+    //计算得分和等级
+    function _initTotal(data) {
+        var totalScore = 0,
+            totalGrade = 'D',
+            form = data.form;
 
+        var scroeList = {
+            score: {
+                situation: {
+                    type: {
+                        "1": 0,
+                        "2": 0
+                    },
+                    case: {
+                        "1": 10,
+                        "2": 45,
+                        "3": 45
+                    }
+                },
+                brand: {
+                    brandType: {
+                        "1": 60,
+                        "2": 50,
+                        "3": 40,
+                        "4": 30,
+                        "15": 0
+                    },
+                    authorization: {
+                        "1": 40,
+                        "2": 0
+                    }
+                },
+                coordination: {
+                    "rational": {
+                        "1": 40,
+                        "2": 20,
+                        "3": 0
+                    },
+                    "paymentDays": {
+                        "1": 30,
+                        "2": 20,
+                        "3": 15,
+                        "4": 5,
+                        "5": 3,
+                        "6": 0
+                    },
+                    "returnPolicy": {
+                        "1": 30,
+                        "2": 15,
+                        "3": 0
+                    }
+                },
+                logistics: {
+                    "deliveryTime": {
+                        "1": 50,
+                        "2": 40,
+                        "3": 20,
+                        "4": 0
+                    },
+                    "transportMode": {
+                        "1A": 7,
+                        "2A": 7,
+                        "3A": 6,
+                        "1B": 0,
+                        "2B": 0,
+                        "3B": 0
+                    },
+                    "needRushOrder": {
+                        "A": 10,
+                        "B": 0
+                    },
+                    "rushOrderRatio": {
+                        "A": 10,
+                        "B": 5
+                    },
+                    "preWarningSystem": {
+                        "A": 10,
+                        "B": 0
+                    }
+                },
+                compatibility: {
+                    "timeliness": {
+                        "1": 10,
+                        "2": 5,
+                        "3": 0
+                    },
+                    "supplyRatio": {
+                        "1": 25,
+                        "2": 0
+                    },
+                    "giftSupply": {
+                        "1": 25,
+                        "2": 10,
+                        "3": 0
+                    },
+                    "afterSale": {
+                        "1": 15,
+                        "2": 15,
+                        "3": 10
+                    }
+                }
+            },
+            ratio: {
+                brand: form.situation.type == 1 ? 25 : 35,
+                situation: form.situation.type == 1 ? 10 : 0,
+                coordination: 35,
+                logistics: 15,
+                compatibility: 15
+            }
+        };
+
+        $.each(form, function (key, obj) {
+            $.each(obj, function (k, v) {
+                if (typeof v == 'object') {
+                    $.each(v, function () {
+                        totalScore += scroeList.ratio[key] * scroeList.score[key][k][this];
+                    });
+                } else {
+                    totalScore += scroeList.ratio[key] * scroeList.score[key][k][v];
+                }
+            });
+        });
+        totalScore = totalScore / 100;
+
+        totalGrade = totalScore < 65
+            ? 'D'
+            : (totalScore >= 65 && totalScore < 75)
+                ? 'C'
+                : (totalScore >= 75 && totalScore < 85)
+                    ? 'B'
+                    : 'A';
+
+        data.totalScore = totalScore.toFixed(2);
+        data.totalGrade = totalGrade;
+    }
 }
 
 //导出JSON
@@ -1181,16 +1312,6 @@ function model(data) {
             },
             "e": {
                 "c": 15,
-                "r": 25
-            }
-        },
-        {
-            "s": {
-                "c": 15,
-                "r": 26
-            },
-            "e": {
-                "c": 15,
                 "r": 27
             }
         },
@@ -1198,26 +1319,6 @@ function model(data) {
             "s": {
                 "c": 11,
                 "r": 24
-            },
-            "e": {
-                "c": 11,
-                "r": 25
-            }
-        },
-        {
-            "s": {
-                "c": 11,
-                "r": 26
-            },
-            "e": {
-                "c": 11,
-                "r": 27
-            }
-        },
-        {
-            "s": {
-                "c": 11,
-                "r": 28
             },
             "e": {
                 "c": 11,
@@ -2815,28 +2916,23 @@ function content(data, list) {
         "w": ""
     };
 
-    var transportMode = list.form.logistics.transportMode.toString();
+    var transportMode = [];
+    $.each(list.form.logistics.transportMode, function (i) {
+        transportMode.push(this.split('')[1]);
+    });
     data["L25"] = {
         "t": "s",
-        "v": transportMode,
-        "r": transportMode,
-        "h": transportMode,
+        "v": transportMode.toString(),
+        "r": transportMode.toString(),
+        "h": transportMode.toString(),
         "w": ""
     };
 
     data["P25"] = {
         "t": "s",
-        "v": list.form.logistics.needRushOrder.toString(),
-        "r": list.form.logistics.needRushOrder.toString(),
-        "h": list.form.logistics.needRushOrder.toString(),
-        "w": ""
-    };
-
-    data["P27"] = {
-        "t": "s",
-        "v": list.form.logistics.rushOrderRatio.toString(),
-        "r": list.form.logistics.rushOrderRatio.toString(),
-        "h": list.form.logistics.rushOrderRatio.toString(),
+        "v": list.form.logistics.needRushOrder.toString() + ',' + list.form.logistics.rushOrderRatio.toString(),
+        "r": list.form.logistics.needRushOrder.toString() + ',' + list.form.logistics.rushOrderRatio.toString(),
+        "h": list.form.logistics.needRushOrder.toString() + ',' + list.form.logistics.rushOrderRatio.toString(),
         "w": ""
     };
 
@@ -2922,5 +3018,7 @@ function s2ab(s) {
         return buf;
     }
 }
+
+
 
 

@@ -177,7 +177,7 @@ function updateForms(idx) {
     obj.form = form;
 
     $rowList.find('.name').text(obj.name);
-    $rowList.find('.type').text(obj.form.situation.type);
+    $rowList.find('.type').text(obj.typeName);
     $rowList.find('.totalGrade').text(obj.totalGrade);
     $rowList.find('.totalScore').text(obj.totalScore);
 
@@ -210,8 +210,8 @@ function updateForms(idx) {
             if (k == 'totalScore') return oldScore = v;
             if (k == 'totalGrade') return oldGrade = v;
 
-            if (v != obj[k] && typeof v != 'object') {
 
+            if (v != obj[k] && typeof v != 'object') {
                 updateRecord.push({
                     name: out ? out + '.' + k : k,
                     oldMsg: v,
@@ -220,7 +220,6 @@ function updateForms(idx) {
             }
 
             if ($.isArray(v) && v.sort().toString() != obj[k].sort().toString()) {
-                console.log(k, v, obj[k], out)
                 updateRecord.push({
                     name: out ? out + '.' + k : k,
                     oldMsg: v,

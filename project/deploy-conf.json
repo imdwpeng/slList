@@ -1,0 +1,23 @@
+{
+  "version": "v1.0.0",
+  "project": {
+    "name": "slList"
+  },
+  "main": {
+    "doMain": "",
+    "resourcePath": "/htdocs/shili/resource",
+    "viewsPath": "/htdocs/shili/view",
+    "ftpResource": {
+      "host": "120.26.72.238",
+      "port": 21,
+      "user": "hyu3159700001",
+      "password": "Saiyansw88"
+    },
+    "ftpViews": {
+      "host": "120.26.72.238",
+      "port": 21,
+      "user": "hyu3159700001",
+      "password": "Saiyansw88"
+    }
+  }
+}

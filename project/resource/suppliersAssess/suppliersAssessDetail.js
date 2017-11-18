@@ -3,46 +3,35 @@
  */
 
 $(document).ready(function () {
+    var oldForms = window.opener.oldForms,
+        idx = window.location.search.substring(1).split('=')[1],
+        list = {},
+        updateRecordList = [];
 
-    var idx = window.location.search.substring(1).split('=')[1];
+    $.each(oldForms.list, function (i) {
+        if (this.id != idx) return;
 
-    $.ajax({
-        type: 'GET',
-        url: '/shili/json/assessmentForms.json'
-    }).done(function (data) {
-
-        var list = {},
-            updateRecordList = [];
-        $.each(data.list, function (i) {
-            if (this.id != idx) return;
-            list = data.list[i];
-            updateRecordList = list.updateRecordList;
-            $('#totalScore').text(list.totalScore);
-            $('#totalGrade').text(list.totalGrade);
-        });
-
-        //详情
-        var htmlDetail = Mustache.render($('#J_template').html(), list);
-        $('#detailBox').empty().append(htmlDetail);
-
-        var historyList = [];
-        $.each(updateRecordList, function (k, v) {
-
-        });
-
-        //修改历史
-        var htmlHistory = Mustache.render($('#J_tempHistory').html(), {list: updateRecordList});
-        $('#historyBox').empty().append(htmlHistory);
-
-        noToName();
+        list = oldForms.list[i];
+        updateRecordList = list.updateRecordList;
+        $('#totalScore').text(list.totalScore);
+        $('#totalGrade').text(list.totalGrade);
     });
+
+    //详情
+    var htmlDetail = Mustache.render($('#J_template').html(), list);
+    $('#detailBox').empty().append(htmlDetail);
+
+    //修改历史
+    var htmlHistory = Mustache.render($('#J_tempHistory').html(), {list: updateRecordList});
+    $('#historyBox').empty().append(htmlHistory);
+
+    noToName();
 });
 
 function noToName() {
     $.ajax({
         type: 'GET',
-        url: '../../resource/suppliersAssess/noToName.json'
-        // url: '/shili/json/noToName.json'
+        url: '/shili/json/noToName.json'
     }).done(function (data) {
         $('fieldset:not(".basic-msg")').each(function () {
             var $this = $(this),
@@ -59,8 +48,11 @@ function noToName() {
                 if (no && _this.hasClass('multipleChoice')) {
                     var noAttr = no.split(','),
                         name = '';
+
                     $.each(noAttr, function () {
-                        name += '<p class="margin-t-0">' + data.optionName[item][type][this] + '</p>';
+                        if (data.optionName[item][type][this]) {
+                            name += '<p class="margin-t-0">' + data.optionName[item][type][this] + '</p>';
+                        }
                     });
                     _this.html(name);
 
@@ -83,12 +75,14 @@ function noToName() {
                         var options = '';
 
                         $.each(optionAttr, function (i) {
-                            options += '<li>● '+ data.optionName[nameAttr[0]][nameAttr[1]][optionAttr[i]] +'</li>';
+                            if (data.optionName[nameAttr[0]][nameAttr[1]][optionAttr[i]]) {
+                                options += '<li>● ' + data.optionName[nameAttr[0]][nameAttr[1]][optionAttr[i]] + '</li>';
+                            }
                         });
 
                         $(this).html(options);
                     });
-                }else{
+                } else {
 
                 }
             });

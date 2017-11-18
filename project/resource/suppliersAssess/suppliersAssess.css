@@ -31,10 +31,10 @@
 
 .update-layout .container {
     position: absolute;
-    width: 80%;
+    width: 90%;
     height: 80%;
-    transform: translate(10%, 10%);
-    padding: 20px 60px;
+    transform: translate(5%, 10%);
+    padding: 20px 30px;
     border: 1px solid #ddd;
     border-radius: 8px;
     background: #fff;

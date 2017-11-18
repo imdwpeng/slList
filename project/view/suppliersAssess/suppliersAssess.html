@@ -55,6 +55,11 @@
                 <button type="button" class="form-button" id="J_save">保存</button>
             </div>
         </div>
+        <div class="row">
+            <div class="col-1 text-c color10">
+                注意：操作结束后需点击上面的保存按钮，将导出的文件按正确的名字上传，方能生效！
+            </div>
+        </div>
     </div>
 
     <div class="container">
@@ -84,9 +89,9 @@
 <script type="text/plain" id="J_template">
 {{#list}}
     <div class="row rowList" data-id="{{id}}">
-        <div class="col-1 name">
+        <div class="col-1">
             <input type="checkbox" class="J_check" data-id="{{id}}"/>
-            {{name}}
+            <span class="name">{{name}}</span>
         </div>
         <div class="col-1 type">{{typeName}}</div>
         <div class="col-1 totalGrade">{{totalGrade}}</div>
@@ -578,11 +583,11 @@
                 </div>
                 <div class="row rowList" data-type="preWarningSystem">
                     <label class="col-md-2 form-label">预警系统</label>
-                    <div class="col-md-1 radioList">
+                    <div class="col-md-2 radioList">
                         <div class="row">
                             <div class="col-1 radio">
                                 <label>
-                                    <input type="radio" name="r-10" class="J_radio" data-grade="10" data-no="1">
+                                    <input type="radio" name="r-10" class="J_radio" data-grade="10" data-no="A">
                                     有
                                 </label>
                             </div>
@@ -590,7 +595,7 @@
                         <div class="row">
                             <div class="col-1 radio">
                                 <label>
-                                    <input type="radio" name="r-10" class="J_radio" data-grade="0" data-no="2">
+                                    <input type="radio" name="r-10" class="J_radio" data-grade="0" data-no="B">
                                     无
                                 </label>
                             </div>
