@@ -34,8 +34,8 @@
         "logistics": {
           "deliveryTime": 2,
           "transportMode": [
-            1,
-            2
+            "1A",
+            "2B"
           ],
           "needRushOrder": 1,
           "rushOrderRatio": 2,
