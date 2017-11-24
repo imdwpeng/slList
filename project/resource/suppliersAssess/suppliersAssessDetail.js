@@ -46,7 +46,7 @@ function noToName() {
 
                 //多选
                 if (no && _this.hasClass('multipleChoice')) {
-                    var noAttr = no.split(','),
+                    var noAttr = no.toString().split(','),
                         name = '';
 
                     $.each(noAttr, function () {

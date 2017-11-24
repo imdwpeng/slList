@@ -8,7 +8,7 @@ fieldset > .row {
 }
 
 fieldset .row > label {
-    color: #ddd;
+    color: #9E9E9E;
 }
 
 fieldset:not(.basic-msg) > .row:not(:last-of-type) {
