@@ -1,0 +1,47 @@
+:global {
+  .triggerBox {
+    position: absolute;
+    top: 20px;
+    right: 6px;
+    z-index: 1000;
+    color: rgba(255, 255, 255, .5);
+  }
+
+  .ant-layout-sider-collapsed .triggerBox {
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 64px;
+  }
+
+  .ant-layout-sider-collapsed .triggerBox .trigger {
+    display: none;
+  }
+
+  .ant-layout-sider-collapsed .triggerBox:hover {
+    background: rgba(0, 0, 0, .8);
+  }
+
+  .ant-layout-sider-collapsed .triggerBox:hover .trigger {
+    display: block;
+  }
+
+  .trigger {
+    font-size: 12px;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .logo {
+    margin: 16px;
+    height: 32px;
+    text-align: center;
+  }
+
+  .ant-layout-sider-children {
+    position: relative;
+  }
+}
