@@ -2,7 +2,7 @@
  * @Author: DWP
  * @Date: 2021-08-11 13:55:33
  * @LastEditors: DWP
- * @LastEditTime: 2021-08-18 10:37:20
+ * @LastEditTime: 2021-08-18 19:08:58
  */
 import moment from 'moment';
 import React, { useState, useEffect } from 'react';
@@ -24,7 +24,9 @@ const DataAnalysis = ({ dateType }) => {
     }));
 
     promiseAttr.push(new Promise((resolve) => {
-      http.get('php/cow_data.php').then((res) => {
+      http.get('php/cow_data.php', {
+        abandon: 0
+      }).then((res) => {
         resolve(res);
       });
     }));
@@ -58,7 +60,7 @@ const DataAnalysis = ({ dateType }) => {
       const dateKey = dateType === 'month'
         ? moment(item.date).format('YYYY-MM')
         : `${moment(item.date).weekday(1).format('YYYY-MM-DD')} ~ ${moment(item.date).weekday(7).format('YYYY-MM-DD')}`;
-      const [{ name: brandName }] = brandList.filter((o) => o.id === item.brand);
+      const { name: brandName } = brandList.filter((o) => o.id === item.brand)[0] || {};
 
       if (!dataSource[dateKey]) {
         dataSource[dateKey] = new Array(dataSource['目标'].length);

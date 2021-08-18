@@ -1,14 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2019-10-24 23:27:44
- * @LastEditTime: 2021-08-17 18:48:11
+ * @LastEditTime: 2021-08-18 15:36:37
  * @LastEditors: DWP
  * @Description: In User Settings Edit
  * @FilePath: /github/yingtianmeijie/src/web/routers.js
  */
 import React from 'react';
 import Loadable from 'react-loadable';
-import {TagOutlined, HighlightOutlined, BarChartOutlined} from '@ant-design/icons'
+import {TagOutlined, HighlightOutlined, BarChartOutlined, UserOutlined} from '@ant-design/icons'
 
 const loadable = filename => Loadable({
   loader: () => import(`./containers/${filename}/index.js`),
@@ -32,6 +32,11 @@ const routers = [
     component: loadable('BrandManage')
   },
   {
+    path: '/anchor',
+    exact: true,
+    component: loadable('AnchorManage')
+  },
+  {
     path: '/record',
     exact: true,
     component: loadable('Manage')
@@ -49,6 +54,12 @@ const menus = [
     path: '/brand',
     name: '品牌管理',
     icon: TagOutlined
+  },
+  {
+    id: 'anchor',
+    path: '/anchor',
+    name: '主播管理',
+    icon: UserOutlined
   },
   {
     id: 'record',

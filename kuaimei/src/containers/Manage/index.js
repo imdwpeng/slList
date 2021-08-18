@@ -2,7 +2,7 @@
  * @Author: DWP
  * @Date: 2021-08-11 13:42:00
  * @LastEditors: DWP
- * @LastEditTime: 2021-08-17 10:59:04
+ * @LastEditTime: 2021-08-18 19:09:03
  */
 import React, { Component } from 'react';
 import {
@@ -12,6 +12,7 @@ import {
   Input,
   Select,
   DatePicker,
+  Radio,
   Button,
   Popconfirm,
   Modal,
@@ -25,6 +26,7 @@ import http from '../../http';
 import styles from './index.less';
 
 const { Option } = Select;
+const { TextArea } = Input;
 const { WeekPicker, MonthPicker } = DatePicker;
 
 class DataManagement extends Component {
@@ -41,8 +43,24 @@ class DataManagement extends Component {
         dataIndex: 'brandName'
       },
       {
+        title: '销售件数',
+        dataIndex: 'saleCount'
+      },
+      {
         title: '销售额',
         dataIndex: 'sales'
+      },
+      {
+        title: '主播',
+        dataIndex: 'anchorName'
+      },
+      {
+        title: '产品',
+        dataIndex: 'production'
+      },
+      {
+        title: '备注',
+        dataIndex: 'memo'
       },
       {
         title: '操作',
@@ -68,6 +86,7 @@ class DataManagement extends Component {
 
     this.state = {
       brands: [],
+      anchors: [],
       columns,
       dataSource: [],
       visible: false,
@@ -76,14 +95,30 @@ class DataManagement extends Component {
   }
 
   componentDidMount() {
-    this.getBrand();
+    this.init();
   }
 
-  // 获取品牌数据
-  getBrand = () => {
-    http.get('php/cow_brand.php').then((data) => {
+  init = () => {
+    const parmas = [];
+
+    parmas.push(new Promise((resolve) => {
+      http.get('php/cow_anchor.php').then((data) => {
+        resolve(data);
+      });
+    }));
+
+    parmas.push(new Promise((resolve) => {
+      http.get('php/cow_brand.php').then((data) => {
+        console.log(data);
+        resolve(data);
+      });
+    }));
+
+    Promise.all(parmas).then((res) => {
+      const [anchors, brands] = res;
       this.setState({
-        brands: data
+        anchors,
+        brands
       }, () => {
         this.getData();
       });
@@ -102,20 +137,26 @@ class DataManagement extends Component {
     } else {
       obj.brand = params.brand;
       obj.date = params.date;
+      obj.anchor = params.anchor;
     }
 
     http.get('php/cow_data.php', {
-      ...obj
+      ...obj,
+      abandon: 0
     }).then((data) => {
-      const { brands } = this.state;
+      const { brands, anchors } = this.state;
 
       const dataSource = data.map((item) => {
         const [{ name: brandName } = {}] = brands.filter((o) => o.id === item.brand);
+        const [{ name: anchorName } = {}] = anchors.filter((o) => o.id === item.anchor);
         return {
           ...item,
-          brandName
+          brandName,
+          anchorName
         };
       });
+
+      dataSource.sort((a, b) => moment(b.date) - moment(a.date));
 
       this.setState({
         dataSource
@@ -135,7 +176,11 @@ class DataManagement extends Component {
           moment(date).weekday(7).format('YYYY-MM-DD')
         ];
 
-      this.getData({ date: range, brand: values.brand });
+      this.getData({
+        date: range,
+        brand: values.brand,
+        anchor: values.anchor
+      });
     });
   };
 
@@ -162,7 +207,7 @@ class DataManagement extends Component {
         }).then(() => {
           message.success('修改成功');
           this.toggleVisible();
-          this.getData();
+          this.hanldeSearch();
         });
       } else {
         // 新增
@@ -176,7 +221,7 @@ class DataManagement extends Component {
           }).then(() => {
             message.success('新增成功');
             this.toggleVisible();
-            this.getData();
+            this.hanldeSearch();
           });
         });
       }
@@ -186,12 +231,12 @@ class DataManagement extends Component {
   handleDelete = (id) => {
     http.del(`/php/cow_data.php?id=${id}`).then(() => {
       message.success('删除成功');
-      this.getData();
+      this.hanldeSearch();
     });
   }
 
   render() {
-    const { brands, columns, dataSource, visible, modalData } = this.state;
+    const { brands, anchors, columns, dataSource, visible, modalData } = this.state;
     const { height } = document.body.getBoundingClientRect();
 
     return (
@@ -200,7 +245,8 @@ class DataManagement extends Component {
           ref={(ref) => { this.formRef = ref; }}
           initialValues={{
             dateType: 'week',
-            date: moment()
+            date: moment(),
+            abandon: 0
           }}
           onFinish={this.hanldeSearch}
         >
@@ -228,35 +274,59 @@ class DataManagement extends Component {
             </Col>
             <Col span={8}>
               <Form.Item
-                label="日期维度"
-                name="dateType"
+                label="主播"
+                name="anchor"
               >
-                <Select placeholder="日期维度">
-                  <Option key="week" value="week">周</Option>
-                  <Option key="month" value="month">月</Option>
+                <Select allowClear placeholder="请选择主播">
+                  {
+                    anchors.map((item) => {
+                      return (
+                        <Option
+                          key={item.id}
+                          value={item.id}
+                        >
+                          {item.name}
+                        </Option>
+                      );
+                    })
+                  }
                 </Select>
               </Form.Item>
             </Col>
             <Col span={8}>
-              <Form.Item
-                noStyle
-                shouldUpdate={(prevValues, currentValues) => prevValues.dateType !== currentValues.dateType}
-              >
-                {({ getFieldValue }) => (
+              <Row>
+                <Col span={10}>
                   <Form.Item
                     label="日期范围"
-                    name="date"
+                    name="dateType"
                   >
-                    {
-                      React.createElement(getFieldValue('dateType') === 'month' ? MonthPicker : WeekPicker, {
-                        allowClear: false,
-                        placeholder: '请选择日期',
-                        style: { width: '100%' }
-                      })
-                    }
+                    <Select>
+                      <Option key="week" value="week">周</Option>
+                      <Option key="month" value="month">月</Option>
+                    </Select>
                   </Form.Item>
-                )}
-              </Form.Item>
+                </Col>
+                <Col span={14}>
+                  <Form.Item
+                    noStyle
+                    shouldUpdate={(prevValues, currentValues) => prevValues.dateType !== currentValues.dateType}
+                  >
+                    {({ getFieldValue }) => (
+                      <Form.Item
+                        name="date"
+                      >
+                        {
+                          React.createElement(getFieldValue('dateType') === 'month' ? MonthPicker : WeekPicker, {
+                            allowClear: false,
+                            placeholder: '请选择日期',
+                            style: { width: '100%' }
+                          })
+                        }
+                      </Form.Item>
+                    )}
+                  </Form.Item>
+                </Col>
+              </Row>
             </Col>
           </Row>
           <Row>
@@ -289,7 +359,7 @@ class DataManagement extends Component {
           dataSource={dataSource}
           columns={columns}
           pagination={false}
-          scroll={{ y: height - 350 }}
+          scroll={{ y: height - 250 }}
         />
         <Modal
           centered
@@ -310,10 +380,26 @@ class DataManagement extends Component {
             }}
           >
             <Form.Item
+              name="abandon"
+              style={{ display: 'none' }}
+            >
+              <Input disabled />
+            </Form.Item>
+            <Form.Item
               name="id"
               style={{ display: 'none' }}
             >
               <Input disabled />
+            </Form.Item>
+            <Form.Item
+              label="日期"
+              name="date"
+              rules={[{ required: true, message: '请选择日期' }]}
+            >
+              <DatePicker
+                style={{ width: '100%' }}
+                disabled={!!modalData.id}
+              />
             </Form.Item>
             {
               modalData.id ? (
@@ -355,14 +441,11 @@ class DataManagement extends Component {
               )
             }
             <Form.Item
-              label="日期"
-              name="date"
-              rules={[{ required: true, message: '请选择日期' }]}
+              label="销售件数"
+              name="saleCount"
+              rules={[{ required: true, message: '请输入销售件数' }]}
             >
-              <DatePicker
-                style={{ width: '100%' }}
-                disabled={!!modalData.id}
-              />
+              <InputNumber style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item
               label="销售额"
@@ -370,6 +453,38 @@ class DataManagement extends Component {
               rules={[{ required: true, message: '请输入销售额' }]}
             >
               <InputNumber style={{ width: '100%' }} />
+            </Form.Item>
+            <Form.Item
+              label="主播"
+              name="anchor"
+              rules={[{ required: true, message: '请选择主播' }]}
+            >
+              <Select>
+                {
+                  anchors.map((item) => {
+                    return (
+                      <Option
+                        key={item.id}
+                        value={item.id}
+                      >
+                        {item.name}
+                      </Option>
+                    );
+                  })
+                }
+              </Select>
+            </Form.Item>
+            <Form.Item
+              label="产品"
+              name="production"
+            >
+              <TextArea row={4} />
+            </Form.Item>
+            <Form.Item
+              label="备注"
+              name="memo"
+            >
+              <TextArea row={2} />
             </Form.Item>
           </Form>
         </Modal>
