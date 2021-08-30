@@ -74,12 +74,17 @@
                     // [1,'a1','b1','c1']
                     array_push($valueAttr, '"'.$v.'"');
                 }
-                // (id,str1,str2,str3)
-                $keys = '('.implode(',', $keyAttr).')';
+                
                 // (1,'a1','b1','c1')
                 $param = '('.implode(',', $valueAttr).')';
                 // (id,str1,str2,str3) VALUES (1,'a1','b1','c1')
-                $sql = $keys.' VALUES '.$param;
+                $sql = $param;
+
+                if (count($params) === 0) {
+                    // (id,str1,str2,str3)
+                    $keys = '('.implode(',', $keyAttr).')';
+                    array_push($params, $keys);
+                }
 
                 array_push($params, $sql);
             }
@@ -192,14 +197,14 @@
          */
         public function Post($tbName){
             $params = $this->getNewParams();
+            $keys=array_shift($params);
+            $sql = 'INSERT INTO '.$tbName.$keys .' VALUES ';
 
-            $sql;
             foreach($params as $key=>$value){
-                $sql .= 'INSERT INTO '.$tbName.' '.$value;
-                if(count($params) > 1){
-                    $sql .= ';';
-                }
+                $sql .= $value.',';
             }
+
+            $sql = substr($sql, 0,mb_strlen($sql)-1);
 
             $db = $this->db;
             $result = mysqli_query($db, $sql);

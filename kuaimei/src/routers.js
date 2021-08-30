@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2019-10-24 23:27:44
- * @LastEditTime: 2021-08-18 15:36:37
+ * @LastEditTime: 2021-08-25 08:39:53
  * @LastEditors: DWP
  * @Description: In User Settings Edit
  * @FilePath: /github/yingtianmeijie/src/web/routers.js
@@ -23,26 +23,6 @@ const loadable = filename => Loadable({
 const routers = [
   {
     path: '/',
-    exact: true,
-    component: loadable('Statistics')
-  },
-  {
-    path: '/brand',
-    exact: true,
-    component: loadable('BrandManage')
-  },
-  {
-    path: '/anchor',
-    exact: true,
-    component: loadable('AnchorManage')
-  },
-  {
-    path: '/record',
-    exact: true,
-    component: loadable('Manage')
-  },
-  {
-    path: '/statistics',
     exact: true,
     component: loadable('Statistics')
   },

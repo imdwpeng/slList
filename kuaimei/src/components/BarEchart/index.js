@@ -2,7 +2,7 @@
  * @Author: DWP
  * @Date: 2021-04-27 11:07:32
  * @LastEditors: DWP
- * @LastEditTime: 2021-08-18 10:37:24
+ * @LastEditTime: 2021-08-30 10:15:20
  */
 import React, { PureComponent } from 'react';
 import ReactEChartsCore from 'echarts-for-react/lib/core';
@@ -160,7 +160,7 @@ class BarEchart extends PureComponent {
         echarts={echarts}
         option={option}
         style={{
-          height: '100%'
+          height: 'calc(100% - 32px)'
         }}
       />
     );

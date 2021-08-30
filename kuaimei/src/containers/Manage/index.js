@@ -2,7 +2,7 @@
  * @Author: DWP
  * @Date: 2021-08-11 13:42:00
  * @LastEditors: DWP
- * @LastEditTime: 2021-08-18 19:09:03
+ * @LastEditTime: 2021-08-24 22:01:18
  */
 import React, { Component } from 'react';
 import {
@@ -12,22 +12,39 @@ import {
   Input,
   Select,
   DatePicker,
-  Radio,
   Button,
   Popconfirm,
   Modal,
   InputNumber,
   Table,
+  Upload,
   message
 } from 'antd';
-import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import moment from 'moment';
+import * as XLSX from 'xlsx';
 import http from '../../http';
 import styles from './index.less';
 
 const { Option } = Select;
 const { TextArea } = Input;
 const { WeekPicker, MonthPicker } = DatePicker;
+
+function formatDate(numb, format = '-') {
+  if (typeof numb === 'number') {
+    const time = new Date((numb - 1) * 24 * 3600000 + 1);
+    time.setYear(time.getFullYear() - 70);
+    const year = `${time.getFullYear()}`;
+    const month = `${time.getMonth() + 1}`;
+    const date = `${time.getDate() - 1}`;
+    if (format && format.length === 1) {
+      return year + format + month + format + date;
+    }
+    return year + (month < 10 ? `0${month}` : month) + (date < 10 ? `0${date}` : date);
+  } else {
+    return numb;
+  }
+}
 
 class DataManagement extends Component {
   constructor(props) {
@@ -235,6 +252,59 @@ class DataManagement extends Component {
     });
   }
 
+  onImportExcel = (file) => {
+    const { dataSource } = this.state;
+    // 获取上传的文件对象
+    const { files } = file.target;
+    // 通过FileReader对象读取文件
+    const fileReader = new FileReader();
+    fileReader.onload = (event) => {
+      try {
+        const { result } = event.target;
+        // 以二进制流方式读取得到整份excel表格对象
+        const workbook = XLSX.read(result, { type: 'binary' });
+        let data = []; // 存储获取到的数据
+        // 遍历每张工作表进行读取（这里默认只读取第一张表）
+        for (const sheet in workbook.Sheets) {
+          if (workbook.Sheets.hasOwnProperty(sheet)) {
+            // 利用 sheet_to_json 方法将 excel 转成 json 数据
+            data = data.concat(XLSX.utils.sheet_to_json(workbook.Sheets[sheet]));
+            break; // 如果只取第一张表，就取消注释这行
+          }
+        }
+
+        const newData = [];
+        data.forEach((item, i) => {
+          if (item['直播时间']) {
+            newData.push({
+              brand: item['品牌名'],
+              date: formatDate(item['直播时间']),
+              sales: item['销售额'],
+              id: `${i + 1}`,
+              anchor: item['主播'] === '哦王小明' ? '王小明' : item['主播'] === '杨宛w' ? '杨宛' : item['主播'],
+              memo: item['备注'],
+              production: item['直播产品'],
+              saleCount: item['销售件数']
+            });
+          }
+        });
+
+        http.post('php/cow_data.php', {
+          ...newData
+        }).then(() => {
+          message.success('新增成功');
+          this.toggleVisible();
+          this.hanldeSearch();
+        });
+      } catch (e) {
+        // 这里可以抛出文件类型错误不正确的相关提示
+        message.warning('文件类型不正确');
+      }
+    };
+    // 以二进制方式打开文件
+    fileReader.readAsBinaryString(files[0]);
+  }
+
   render() {
     const { brands, anchors, columns, dataSource, visible, modalData } = this.state;
     const { height } = document.body.getBoundingClientRect();
@@ -345,14 +415,17 @@ class DataManagement extends Component {
             </Col>
           </Row>
         </Form>
-        <Button
-          type="primary"
-          style={{ marginBottom: 16 }}
-          icon={<PlusOutlined />}
-          onClick={() => this.toggleVisible()}
-        >
-          新增记录
-        </Button>
+        <div>
+          <Button
+            type="primary"
+            style={{ marginBottom: 16 }}
+            icon={<PlusOutlined />}
+            onClick={() => this.toggleVisible()}
+          >
+            新增记录
+          </Button>
+          <input type="file" accept=".xlsx, .xls" onChange={this.onImportExcel} />
+        </div>
         <Table
           rowKey="id"
           size="small"
