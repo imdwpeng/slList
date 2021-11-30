@@ -2,7 +2,7 @@
  * @Author: DWP
  * @Date: 2021-08-17 16:05:38
  * @LastEditors: DWP
- * @LastEditTime: 2021-08-30 10:00:36
+ * @LastEditTime: 2021-11-30 14:00:43
  */
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
@@ -14,7 +14,8 @@ import {
   Drawer,
   Button,
   Form,
-  message
+  message,
+  notification
 } from 'antd';
 import * as XLSX from 'xlsx';
 import _ from 'lodash';
@@ -23,7 +24,8 @@ import BarEchart from '../../components/BarEchart';
 const formatDate = (timeNum) => {
   const d = timeNum - 1;
   const t = Math.round((d - Math.floor(d)) * 24 * 60 * 60);
-  return moment(new Date(1900, 0, d, 0, 0, t)).format('YYYY-MM-DD');
+  const date = moment(new Date(1900, 0, d, 0, 0, t)).format('YYYY-MM-DD');
+  return moment(date, 'YYYY-MM-DD').isValid() ? date : '';
 };
 
 const Statistics = () => {
@@ -70,6 +72,7 @@ const Statistics = () => {
         const newData = [];
         const brandsTarget = [];
         const brand = [];
+        const errorData = [];
 
         data.forEach((item, i) => {
           if (item['直播时间']) {
@@ -81,18 +84,29 @@ const Statistics = () => {
               });
             }
 
-            newData.push({
-              brand: item['品牌名'],
-              date: formatDate(item['直播时间']),
-              sales: item['销售额'],
-              id: `${i + 1}`,
-              anchor: item['主播'] === '哦王小明' ? '王小明' : item['主播'] === '杨宛w' ? '杨宛' : item['主播'],
-              memo: item['备注'],
-              production: item['直播产品'],
-              saleCount: item['销售件数']
-            });
+            if (formatDate(item['直播时间'])) {
+              newData.push({
+                brand: item['品牌名'],
+                date: formatDate(item['直播时间']),
+                sales: item['销售额'],
+                id: `${i + 1}`,
+                anchor: item['主播'] === '哦王小明' ? '王小明' : item['主播'] === '杨宛w' ? '杨宛' : item['主播'],
+                memo: item['备注'],
+                production: item['直播产品'],
+                saleCount: item['销售件数']
+              });
+            } else {
+              errorData.push(1 + item.__rowNum__);
+            }
           }
         });
+
+        if (errorData.length !== 0) {
+          notification.warning({
+            message: '以下几行数据格式有误，已过滤:',
+            description: errorData.join(',')
+          });
+        }
 
         // calculateData(brandsTarget, newData);
         setBrands(brand);
